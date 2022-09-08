@@ -8,12 +8,12 @@ import { SurvivorsModule } from './survivors/survivors.module';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: 'mysql',
+      type: 'postgres',
       host: 'localhost',
-      port: 3306,
+      port: 5434,
       username: 'root',
       password: 'root',
-      database: 'test',
+      database: 'dst-dev-db',
       autoLoadEntities: true,
       synchronize: true, //TODO: change false on prod
     }),

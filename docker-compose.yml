@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  dst-dev-db:
+    image: postgres:alpine
+    ports:
+      - 5434:5432
+    
+    restart: always
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=dst-dev-db
