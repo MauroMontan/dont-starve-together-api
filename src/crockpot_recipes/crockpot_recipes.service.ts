@@ -11,6 +11,10 @@ export class CrockpotRecipesService {
   ) {}
 
   async getAll() {
-    return await this.CrockpotRecipeRepository.find();
+    return await this.CrockpotRecipeRepository.find({
+      relations: {
+        stats: true,
+      },
+    });
   }
 }

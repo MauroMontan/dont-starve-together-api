@@ -9,7 +9,9 @@ describe('CrockpotRecipesController', () => {
       controllers: [CrockpotRecipesController],
     }).compile();
 
-    controller = module.get<CrockpotRecipesController>(CrockpotRecipesController);
+    controller = module.get<CrockpotRecipesController>(
+      CrockpotRecipesController,
+    );
   });
 
   it('should be defined', () => {

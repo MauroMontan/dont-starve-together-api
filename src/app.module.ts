@@ -4,7 +4,10 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { SurvivorsModule } from './survivors/survivors.module';
 import { CrockpotRecipesModule } from './crockpot_recipes/crockpot_recipes.module';
-import { CrockpotRecipe } from './crockpot_recipes/entities/entities';
+import {
+  CrockpotRecipe,
+  RecipeStats,
+} from './crockpot_recipes/entities/entities';
 import { Perks, Survivor } from './survivors/entities/entities';
 
 //WARNING: replace with the right database info
@@ -17,7 +20,7 @@ import { Perks, Survivor } from './survivors/entities/entities';
       username: 'root',
       password: 'root',
       database: 'dst-dev-db',
-      entities: [CrockpotRecipe, Survivor, Perks],
+      entities: [CrockpotRecipe, Survivor, Perks, RecipeStats],
       synchronize: true, //TODO: change false on prod
     }),
     CrockpotRecipesModule,
