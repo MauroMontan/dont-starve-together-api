@@ -21,6 +21,7 @@ export class SurvivorsService {
         favouriteFood: {
           stats: true,
         },
+        stats: true,
       },
     });
   }

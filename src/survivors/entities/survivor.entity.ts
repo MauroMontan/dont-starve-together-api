@@ -1,5 +1,5 @@
 import { CrockpotRecipe } from 'src/crockpot_recipes/entities/entities';
-import { Perks } from './entities';
+import { Perks, SurvivorStats } from './entities';
 import {
   Entity,
   Column,
@@ -29,4 +29,8 @@ export class Survivor {
   @OneToOne(() => CrockpotRecipe, { cascade: true })
   @JoinColumn({ name: 'favourite_food_id' })
   favouriteFood: CrockpotRecipe;
+
+  @OneToOne(() => SurvivorStats, { cascade: true })
+  @JoinColumn({ name: 'stats_id' })
+  stats: SurvivorStats;
 }
