@@ -5,12 +5,12 @@ export class SurvivorStats {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column('decimal')
   health: number;
 
-  @Column()
+  @Column('decimal')
   sanity: number;
 
-  @Column()
+  @Column('decimal')
   hunger: number;
 }
