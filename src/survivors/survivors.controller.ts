@@ -13,7 +13,7 @@ export class SurvivorsController {
   }
 
   @Get()
-  async getAll() {
+  async listAllSurvivors() {
     return await this.service.getAll();
   }
 }
