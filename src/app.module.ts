@@ -9,6 +9,7 @@ import {
   RecipeStats,
 } from './crockpot_recipes/entities/entities';
 import { Perks, Survivor, SurvivorStats } from './survivors/entities/entities';
+import { ItemsModule } from './items/items.module';
 
 //WARNING: replace with the right database info
 @Module({
@@ -25,6 +26,7 @@ import { Perks, Survivor, SurvivorStats } from './survivors/entities/entities';
     }),
     CrockpotRecipesModule,
     SurvivorsModule,
+    ItemsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
