@@ -23,6 +23,9 @@ export class Survivor {
   @Column()
   birthDate: string;
 
+  @Column()
+  animatedShort: string;
+
   @OneToMany(() => Perks, (perk) => perk.survivor, { cascade: true })
   perks: Perks[];
 
