@@ -4,7 +4,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { SurvivorsModule } from './survivors/survivors.module';
 import { CrockpotRecipesModule } from './crockpot_recipes/crockpot_recipes.module';
-import { CrockpotRecipe } from './crockpot_recipes/entities/crockpot_recipe.entity';
+import { CrockpotRecipe } from './crockpot_recipes/entities/entities';
 import { Perks, Survivor } from './survivors/entities/entities';
 
 //WARNING: replace with the right database info

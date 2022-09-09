@@ -1,4 +1,4 @@
-import { CrockpotRecipe } from 'src/crockpot_recipes/entities/crockpot_recipe.entity';
+import { CrockpotRecipe } from 'src/crockpot_recipes/entities/entities';
 import { Perks } from './entities';
 import {
   Entity,
