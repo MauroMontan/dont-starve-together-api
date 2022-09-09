@@ -2,7 +2,7 @@ import { Body, Controller, Get, Post } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { SurvivorsService } from './survivors.service';
 
-@ApiTags('survivors')
+@ApiTags('Survivors')
 @Controller('survivors')
 export class SurvivorsController {
   constructor(private service: SurvivorsService) {}

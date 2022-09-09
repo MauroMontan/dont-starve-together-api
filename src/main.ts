@@ -8,7 +8,8 @@ async function bootstrap() {
     .setTitle('Dont starve together API')
     .setDescription('The dont starve together API')
     .setVersion('1.0')
-    .addTag('survivors')
+    .addTag('Survivors')
+    .addTag('Crockpot Recipes')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('docs', app, document);
