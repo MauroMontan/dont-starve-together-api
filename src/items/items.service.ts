@@ -9,6 +9,10 @@ export class ItemsService {
     @InjectRepository(Item) private itemRepository: Repository<Item>,
   ) {}
 
+  async create(item: Item) {
+    return this.itemRepository.save(item);
+  }
+
   async getAll() {
     return this.itemRepository.find();
   }
