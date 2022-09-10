@@ -8,7 +8,7 @@ import {
 } from 'typeorm';
 import { Item } from 'src/items/entities/entities';
 import { CrockpotRecipe } from 'src/crockpot_recipes/entities/entities';
-import { Perks, SurvivorStats } from './entities';
+import { SurvivorStats } from './entities';
 
 @Entity()
 export class Survivor {
@@ -27,8 +27,8 @@ export class Survivor {
   @Column()
   animatedShort: string;
 
-  @OneToMany(() => Perks, (perk) => perk.survivor, { cascade: true })
-  perks: Perks[];
+  @Column('simple-array')
+  perks: string[];
 
   @OneToOne(() => CrockpotRecipe, { cascade: true })
   @JoinColumn({ name: 'favourite_food_id' })

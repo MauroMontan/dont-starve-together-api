@@ -17,7 +17,6 @@ export class SurvivorsService {
   async getAll() {
     return await this.survivorRepository.find({
       relations: {
-        perks: true,
         entersTheConstantWith: true,
         favouriteFood: {
           stats: true,
