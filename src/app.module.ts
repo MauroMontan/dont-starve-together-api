@@ -15,6 +15,7 @@ import {
 } from './survivors/entities/entities';
 import { ItemsModule } from './items/items.module';
 import { Item } from './items/entities/entities';
+import { WardrobeModule } from './wardrobe/wardrobe.module';
 
 //WARNING: replace with the right database info
 @Module({
@@ -39,6 +40,7 @@ import { Item } from './items/entities/entities';
     CrockpotRecipesModule,
     SurvivorsModule,
     ItemsModule,
+    WardrobeModule,
   ],
   controllers: [AppController],
   providers: [AppService],
