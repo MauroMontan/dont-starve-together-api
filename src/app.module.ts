@@ -10,6 +10,7 @@ import {
 } from './crockpot_recipes/entities/entities';
 import { Perks, Survivor, SurvivorStats } from './survivors/entities/entities';
 import { ItemsModule } from './items/items.module';
+import { Item } from './items/entities/entities';
 
 //WARNING: replace with the right database info
 @Module({
@@ -21,7 +22,14 @@ import { ItemsModule } from './items/items.module';
       username: 'root',
       password: 'root',
       database: 'dst-dev-db',
-      entities: [CrockpotRecipe, Survivor, Perks, RecipeStats, SurvivorStats],
+      entities: [
+        CrockpotRecipe,
+        Survivor,
+        Perks,
+        RecipeStats,
+        SurvivorStats,
+        Item,
+      ],
       synchronize: true, //TODO: change false on prod
     }),
     CrockpotRecipesModule,

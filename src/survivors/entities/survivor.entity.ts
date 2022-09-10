@@ -1,5 +1,3 @@
-import { CrockpotRecipe } from 'src/crockpot_recipes/entities/entities';
-import { Perks, SurvivorStats } from './entities';
 import {
   Entity,
   Column,
@@ -8,6 +6,9 @@ import {
   JoinColumn,
   OneToOne,
 } from 'typeorm';
+import { Item } from 'src/items/entities/entities';
+import { CrockpotRecipe } from 'src/crockpot_recipes/entities/entities';
+import { Perks, SurvivorStats } from './entities';
 
 @Entity()
 export class Survivor {
@@ -36,4 +37,7 @@ export class Survivor {
   @OneToOne(() => SurvivorStats, { cascade: true })
   @JoinColumn({ name: 'stats_id' })
   stats: SurvivorStats;
+
+  @OneToMany(() => Item, (item) => item.survivor, { cascade: true })
+  entersTheConstantWith: Item[];
 }
