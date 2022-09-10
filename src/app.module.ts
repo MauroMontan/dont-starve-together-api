@@ -8,7 +8,11 @@ import {
   CrockpotRecipe,
   RecipeStats,
 } from './crockpot_recipes/entities/entities';
-import { Survivor, SurvivorStats } from './survivors/entities/entities';
+import {
+  Backstory,
+  Survivor,
+  SurvivorStats,
+} from './survivors/entities/entities';
 import { ItemsModule } from './items/items.module';
 import { Item } from './items/entities/entities';
 
@@ -22,7 +26,14 @@ import { Item } from './items/entities/entities';
       username: 'root',
       password: 'root',
       database: 'dst-dev-db',
-      entities: [CrockpotRecipe, Survivor, RecipeStats, SurvivorStats, Item],
+      entities: [
+        CrockpotRecipe,
+        Survivor,
+        RecipeStats,
+        SurvivorStats,
+        Item,
+        Backstory,
+      ],
       synchronize: true, //TODO: change false on prod
     }),
     CrockpotRecipesModule,

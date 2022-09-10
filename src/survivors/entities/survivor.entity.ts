@@ -8,7 +8,7 @@ import {
 } from 'typeorm';
 import { Item } from 'src/items/entities/entities';
 import { CrockpotRecipe } from 'src/crockpot_recipes/entities/entities';
-import { SurvivorStats } from './entities';
+import { SurvivorStats, Backstory } from './entities';
 
 @Entity()
 export class Survivor {
@@ -40,4 +40,8 @@ export class Survivor {
 
   @OneToMany(() => Item, (item) => item.survivor, { cascade: true })
   entersTheConstantWith: Item[];
+
+  @OneToOne(() => Backstory, { cascade: true })
+  @JoinColumn({ name: 'backstory_id' })
+  backstory: Backstory;
 }
