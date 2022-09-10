@@ -15,6 +15,9 @@ export class CrockpotRecipe {
   @Column()
   name: string;
 
+  @Column({ nullable: false, default: false })
+  isWarlySpecial: boolean;
+
   @OneToOne(() => RecipeStats, { cascade: true })
   @JoinColumn({ name: 'recipe_stat_id' })
   stats: RecipeStats;
