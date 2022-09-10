@@ -18,6 +18,12 @@ export class Survivor {
   @Column()
   name: string;
 
+  @Column()
+  nickname: string;
+
+  @Column()
+  description: string;
+
   @Column({ nullable: true })
   quote: string;
 
