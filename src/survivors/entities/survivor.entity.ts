@@ -18,7 +18,7 @@ export class Survivor {
   @Column()
   name: string;
 
-  @Column()
+  @Column({ nullable: true })
   quote: string;
 
   @Column()

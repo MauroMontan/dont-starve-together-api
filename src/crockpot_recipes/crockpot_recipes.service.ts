@@ -10,6 +10,10 @@ export class CrockpotRecipesService {
     private CrockpotRecipeRepository: Repository<CrockpotRecipe>,
   ) {}
 
+  async create(recipe: CrockpotRecipe) {
+    return this.CrockpotRecipeRepository.save(recipe);
+  }
+
   async getAll() {
     return await this.CrockpotRecipeRepository.find({
       relations: {
