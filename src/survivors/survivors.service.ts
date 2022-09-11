@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Survivor } from './entities/entities';
@@ -11,7 +11,17 @@ export class SurvivorsService {
   ) {}
 
   async create(survivor: Survivor) {
-    return await this.survivorRepository.save(survivor);
+    try {
+      return await this.survivorRepository.save(survivor);
+    } catch (error) {
+      throw new HttpException(
+        {
+          status: HttpStatus.UNPROCESSABLE_ENTITY,
+          error: 'survivor already exists',
+        },
+        HttpStatus.UNPROCESSABLE_ENTITY,
+      );
+    }
   }
 
   async getAll() {

@@ -15,7 +15,7 @@ export class Survivor {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ unique: true })
   name: string;
 
   @Column()
@@ -30,13 +30,13 @@ export class Survivor {
   @Column()
   birthDate: string;
 
-  @Column()
+  @Column({ nullable: true })
   animatedShort: string;
 
   @Column('simple-array')
   perks: string[];
 
-  @OneToOne(() => CrockpotRecipe, { cascade: true })
+  @OneToOne(() => CrockpotRecipe, { cascade: true, nullable: true })
   @JoinColumn({ name: 'favourite_food_id' })
   favouriteFood: CrockpotRecipe;
 
