@@ -5,6 +5,7 @@ import {
   Entity,
   JoinColumn,
 } from 'typeorm';
+import { FoodType } from '../enums/enums';
 import { RecipeStats } from './entities';
 
 @Entity()
@@ -15,10 +16,13 @@ export class CrockpotRecipe {
   @Column()
   name: string;
 
-  @Column({ nullable: false, default: false })
-  isWarlySpecial: boolean;
+  @Column()
+  type: FoodType;
 
   @OneToOne(() => RecipeStats, { cascade: true })
   @JoinColumn({ name: 'recipe_stat_id' })
   stats: RecipeStats;
+
+  @Column({ nullable: false, default: false })
+  isWarlySpecial: boolean;
 }
