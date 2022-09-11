@@ -19,6 +19,12 @@ export class CrockpotRecipe {
   @Column()
   type: FoodType;
 
+  @Column({ nullable: true })
+  asset: string;
+
+  @Column({ nullable: true })
+  sideEffect: string;
+
   @OneToOne(() => RecipeStats, { cascade: true })
   @JoinColumn({ name: 'recipe_stat_id' })
   stats: RecipeStats;
