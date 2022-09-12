@@ -16,6 +16,7 @@ import {
 import { ItemsModule } from './items/items.module';
 import { Item } from './items/entities/entities';
 import { WardrobeModule } from './wardrobe/wardrobe.module';
+import { UtilsModule } from './utils/utils.module';
 
 //WARNING: replace with the right database info
 @Module({
@@ -41,6 +42,7 @@ import { WardrobeModule } from './wardrobe/wardrobe.module';
     SurvivorsModule,
     ItemsModule,
     WardrobeModule,
+    UtilsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

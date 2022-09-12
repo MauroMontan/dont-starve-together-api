@@ -1,5 +1,6 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { UtilsService } from 'src/utils/utils.service';
 import { Repository } from 'typeorm';
 import { Survivor } from './entities/entities';
 
@@ -8,7 +9,17 @@ export class SurvivorsService {
   constructor(
     @InjectRepository(Survivor)
     private survivorRepository: Repository<Survivor>,
+    private utils: UtilsService,
   ) {}
+
+  private relations = {
+    entersTheConstantWith: true,
+    backstory: true,
+    favouriteFood: {
+      stats: true,
+    },
+    stats: true,
+  };
 
   async create(survivor: Survivor) {
     try {
@@ -26,14 +37,15 @@ export class SurvivorsService {
 
   async getAll() {
     return await this.survivorRepository.find({
-      relations: {
-        entersTheConstantWith: true,
-        backstory: true,
-        favouriteFood: {
-          stats: true,
-        },
-        stats: true,
-      },
+      relations: this.relations,
+    });
+  }
+
+  async getOne(name: string) {
+    const survivorName = this.utils.capitalize(name);
+    return await this.survivorRepository.findOne({
+      where: { name: survivorName },
+      relations: this.relations,
     });
   }
 }
