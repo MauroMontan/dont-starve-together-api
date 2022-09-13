@@ -18,7 +18,7 @@ I started this project in order to contributting to the dont starve together com
 **This is not a modding related thing**, The Don't starve together API only provides game information.
 
 
-### IMPORTAN
+### IMPORTANT
 
 - Don't starve together is developed by [Klei Entertainment](https://www.klei.com/). All the images and information of the game belongs to the developers.
 
@@ -32,5 +32,5 @@ I started this project in order to contributting to the dont starve together com
 
 ### ERD for database
 
-![ERD](./docs/assets/dont starve database.png) 
+![ERD](/docs/assets/dont starve database.png) 
 
