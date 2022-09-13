@@ -32,5 +32,5 @@ I started this project in order to contributting to the dont starve together com
 
 ### ERD for database
 
-![ERD](/docs/assets/dont starve database.png) 
+![ERD](/docs/asset/erd_dst_database.png) 
 
