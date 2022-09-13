@@ -1,4 +1,4 @@
-# Don't starve together API
+# Don't starve together REST API
 
 The Don't starve together API is a REST service for providing game information.
 
