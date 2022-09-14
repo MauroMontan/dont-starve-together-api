@@ -17,6 +17,7 @@ import { ItemsModule } from './items/items.module';
 import { Item } from './items/entities/entities';
 import { WardrobeModule } from './wardrobe/wardrobe.module';
 import { UtilsModule } from './utils/utils.module';
+import { Skin } from './wardrobe/entities/entities';
 
 //WARNING: replace with the right database info
 @Module({
@@ -35,6 +36,7 @@ import { UtilsModule } from './utils/utils.module';
         SurvivorStats,
         Item,
         Backstory,
+        Skin,
       ],
       synchronize: true, //TODO: change false on prod
     }),

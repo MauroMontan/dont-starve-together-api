@@ -1,4 +1,12 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
+import { WardrobeService } from './wardrobe.service';
 
-@Controller('wardrobe')
-export class WardrobeController {}
+@Controller('skins')
+export class WardrobeController {
+  constructor(private service: WardrobeService) {}
+
+  @Get()
+  async getAllSkins() {
+    return this.service.getAll();
+  }
+}
