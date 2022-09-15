@@ -15,9 +15,9 @@ import {
 } from './survivors/entities/entities';
 import { ItemsModule } from './items/items.module';
 import { Item } from './items/entities/entities';
-import { WardrobeModule } from './wardrobe/wardrobe.module';
+import { SkinsModule } from './skins/skins.module';
 import { UtilsModule } from './utils/utils.module';
-import { Skin } from './wardrobe/entities/entities';
+import { Skin } from './skins/entities/entities';
 
 //WARNING: replace with the right database info
 @Module({
@@ -43,7 +43,7 @@ import { Skin } from './wardrobe/entities/entities';
     CrockpotRecipesModule,
     SurvivorsModule,
     ItemsModule,
-    WardrobeModule,
+    SkinsModule,
     UtilsModule,
   ],
   controllers: [AppController],

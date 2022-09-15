@@ -9,7 +9,7 @@ import {
 import { Item } from 'src/items/entities/entities';
 import { CrockpotRecipe } from 'src/crockpot_recipes/entities/entities';
 import { SurvivorStats, Backstory } from './entities';
-import { Skin } from 'src/wardrobe/entities/entities';
+import { Skin } from 'src/skins/entities/entities';
 
 @Entity()
 export class Survivor {
