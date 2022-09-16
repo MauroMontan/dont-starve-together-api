@@ -1,5 +1,8 @@
 # Don't starve together REST API
 
+
+![test status](https://github.com/MauroMontan/dont-starve-together-REST-API/actions/workflows/tests.yml/badge.svg) 
+
 The Don't starve together API is a REST service for providing game information.
 
 
