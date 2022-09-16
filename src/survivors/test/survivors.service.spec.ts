@@ -9,7 +9,7 @@ import { Backstory, Survivor, SurvivorStats } from '../entities/entities';
 import { SurvivorsService } from '../survivors.service';
 
 // Survivor response mock
-const mockResponse: Survivor = {
+const mockResponse = {
   name: 'Wendy',
   animatedShort: 'link',
   backstory: {} as Backstory,
