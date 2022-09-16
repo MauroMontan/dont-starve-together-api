@@ -16,7 +16,7 @@ The Don't starve together API is a REST service for providing game information.
 
 ### About this project 
 
-I started this project in order to contributting to the dont starve together community (specially those who love developing apps). 
+I started this project to contribute to the dont starve together community (specially those who love developing things). 
 
 **This is not a modding related thing**, The Don't starve together API only provides game information.
 
@@ -32,6 +32,10 @@ I started this project in order to contributting to the dont starve together com
 
 [Here](https://www.klei.com/games/dont-starve-together) you can see more about the game and where to buy it. 
 
+
+### Documentation ?
+
+I really want to make a beautiful docs page with vue or svelte, but swagger looks pretty usefull and can be helpful for development now. I will be adding every development stuff like request collections and diagrams.
 
 ### ERD for database
 
