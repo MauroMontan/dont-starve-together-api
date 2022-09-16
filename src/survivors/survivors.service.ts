@@ -21,7 +21,7 @@ export class SurvivorsService {
     stats: true,
   };
 
-  async create(survivor: Survivor) {
+  async create(survivor: Survivor): Promise<Survivor | HttpException> {
     try {
       return await this.survivorRepository.save(survivor);
     } catch (error) {

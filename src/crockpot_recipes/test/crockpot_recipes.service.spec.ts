@@ -17,7 +17,6 @@ describe('CrockpotRecipesService', () => {
         {
           provide: RECIPE_REPOSITORY_TOKEN,
           useValue: {
-            cretate: jest.fn(),
             save: jest.fn(),
             find: jest.fn(),
           },
