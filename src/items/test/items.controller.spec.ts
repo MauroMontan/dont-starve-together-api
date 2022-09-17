@@ -1,17 +1,16 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { Survivor } from 'src/survivors/entities/entities';
 import { Repository } from 'typeorm';
+import { CreateItemDto } from '../dtos/createItem.dto';
 import { Item } from '../entities/entities';
 import { ItemsController } from '../items.controller';
 import { ItemsService } from '../items.service';
 
-const mockItem = {
+let mockItem: CreateItemDto = {
   name: 'custom item ',
   asset: 'asset image',
   description: 'cool item descriiption',
   category: [],
-  survivor: {} as Survivor,
 };
 describe('ItemsController', () => {
   const ITEM_REPOSITORY = getRepositoryToken(Item);
@@ -50,8 +49,12 @@ describe('ItemsController', () => {
   });
 
   it('should create a new item', async () => {
-    jest.spyOn(controller, 'createItem').mockResolvedValueOnce(mockItem);
-
+    jest
+      .spyOn(controller, 'createItem')
+      .mockImplementation(async (item: CreateItemDto): Promise<Item> => {
+        mockItem = item;
+        return mockItem;
+      });
     expect(await controller.createItem(mockItem)).toEqual(mockItem);
   });
 

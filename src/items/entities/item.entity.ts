@@ -27,5 +27,5 @@ export class Item {
 
   @ManyToOne(() => Survivor, (survivor) => survivor.entersTheConstantWith)
   @JoinColumn({ name: 'survivor_id' })
-  survivor: Survivor;
+  survivor?: Survivor;
 }
