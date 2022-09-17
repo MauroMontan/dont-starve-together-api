@@ -11,6 +11,7 @@ const mockSkin = {
   name: 'skin name',
   description: 'cool  object description',
   bigportrait: 'bigportrait link',
+  survivorId: 1,
   collection: '' as Collection,
   survivor: {} as Survivor,
 };
@@ -41,6 +42,11 @@ describe('SkinsController', () => {
 
   it('skin service should be defined', () => {
     expect(service).toBeDefined();
+  });
+
+  it('should create a new skin', async () => {
+    jest.spyOn(service, 'create').mockResolvedValue(mockSkin);
+    expect(await service.create(mockSkin)).toEqual(mockSkin);
   });
 
   it('should return a list of skins', async () => {

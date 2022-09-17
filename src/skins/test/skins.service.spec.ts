@@ -12,6 +12,7 @@ const mockSkin = {
   description: 'cool  object description',
   bigportrait: 'bigportrait link',
   collection: '' as Collection,
+  survivorId: 1,
   survivor: {} as Survivor,
 };
 
