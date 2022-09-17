@@ -15,7 +15,7 @@ export class CreateSkinDto {
   @IsString()
   bigportrait: string;
 
-  @ApiProperty()
+  @ApiProperty({ enum: Collection, enumName: 'Skin collection' })
   @IsString()
   collection: Collection;
 

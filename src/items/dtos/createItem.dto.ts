@@ -15,7 +15,11 @@ export class CreateItemDto {
   @IsString()
   description: string;
 
-  @ApiProperty()
+  @ApiProperty({
+    isArray: true,
+    enum: ItemCategory,
+    enumName: 'Item categories',
+  })
   @IsArray()
   category: ItemCategory[];
 }
