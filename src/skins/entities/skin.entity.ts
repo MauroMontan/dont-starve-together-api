@@ -11,7 +11,7 @@ import { Survivor } from 'src/survivors/entities/entities';
 @Entity()
 export class Skin {
   @PrimaryGeneratedColumn()
-  id: number;
+  id?: number;
 
   @Column()
   name: string;
@@ -25,7 +25,10 @@ export class Skin {
   @Column({ type: 'enum', enum: Collection })
   collection: Collection;
 
+  @Column({ nullable: false })
+  survivorId: number;
+
   @ManyToOne(() => Survivor, (survivor) => survivor.skins)
-  @JoinColumn({ name: 'skin_id' })
-  survivor: Survivor;
+  @JoinColumn({ name: 'survivorId' })
+  survivor?: Survivor;
 }
