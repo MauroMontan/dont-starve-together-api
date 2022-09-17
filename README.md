@@ -41,3 +41,6 @@ I really want to make a beautiful docs page with vue or svelte, but swagger look
 
 ![ERD](/docs/assets/erd_dst_database.png) 
 
+
+- [chagelogs](/docs/CHANGELOGS.md)
+
