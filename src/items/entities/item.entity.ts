@@ -11,7 +11,7 @@ import { ItemCategory } from '../enums/enums';
 @Entity()
 export class Item {
   @PrimaryGeneratedColumn()
-  id: number;
+  id?: number;
 
   @Column()
   name: string;

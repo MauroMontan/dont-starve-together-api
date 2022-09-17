@@ -7,7 +7,6 @@ import { ItemsController } from '../items.controller';
 import { ItemsService } from '../items.service';
 
 const mockItem = {
-  id: 1,
   name: 'custom item ',
   asset: 'asset image',
   description: 'cool item descriiption',
