@@ -35,7 +35,9 @@ I started this project to contribute to the dont starve together community (spec
 
 ### Documentation ?
 
-I really want to make a beautiful docs page with vue or svelte, but swagger looks pretty usefull and can be helpful for development now. I will be adding every development stuff like request collections and diagrams.
+- Yep this repo has a [wiki](https://github.com/MauroMontan/dont-starve-together-REST-API/wiki) where you can find detailed information about this project and its development. 
+
+- If you are looking for endpoints and schemas, swagger ui is implemented and working !
 
 ### ERD for database
 
