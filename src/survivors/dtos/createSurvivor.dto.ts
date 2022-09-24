@@ -40,8 +40,8 @@ export class CreateSurvivorDto {
   @ApiProperty()
   favouriteFood: CreateCrockpotRecipeDto;
 
-  // @ApiProperty()
-  // stats: CreateSurvivorStatsDto;
+  @ApiProperty({ type: () => CreateSurvivorStatsDto })
+  stats: CreateSurvivorStatsDto;
 
   @ApiProperty({ isArray: true, type: CreateItemDto })
   @IsArray()

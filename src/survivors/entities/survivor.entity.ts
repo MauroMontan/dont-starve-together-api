@@ -41,9 +41,9 @@ export class Survivor {
   @JoinColumn({ name: 'favourite_food_id' })
   favouriteFood: CrockpotRecipe;
 
-  // @OneToOne(() => SurvivorStats, { cascade: true })
-  // @JoinColumn({ name: 'stats_id' })
-  // stats: SurvivorStats;
+  @OneToOne(() => SurvivorStats, { cascade: true })
+  @JoinColumn({ name: 'stats_id' })
+  stats: SurvivorStats;
 
   @OneToMany(() => Item, (item) => item.survivor, { cascade: true })
   entersTheConstantWith: Item[];
