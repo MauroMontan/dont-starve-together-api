@@ -20,7 +20,7 @@ export class CreateCrockpotRecipeDto {
   @IsString()
   sideEffect?: string;
 
-  @ApiProperty()
+  @ApiProperty({ type: () => CreateRecipeStatsDto })
   stats: CreateRecipeStatsDto;
 
   @ApiProperty()
