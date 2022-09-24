@@ -44,5 +44,4 @@ I started this project to contribute to the dont starve together community (spec
 ![ERD](/docs/assets/erd_dst_database.png) 
 
 
-- [chagelogs](/docs/CHANGELOGS.md)
 
