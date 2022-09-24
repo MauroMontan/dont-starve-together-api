@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsInt, IsString } from 'class-validator';
+import { IsEnum, IsInt, IsString } from 'class-validator';
 import { Collection } from '../enums/enums';
 
 export class CreateSkinDto {
@@ -16,7 +16,7 @@ export class CreateSkinDto {
   bigportrait: string;
 
   @ApiProperty({ enum: Collection, enumName: 'Skin collection' })
-  @IsString()
+  @IsEnum(Collection)
   collection: Collection;
 
   @ApiProperty()
