@@ -11,7 +11,7 @@ import { RecipeStats } from './entities';
 @Entity()
 export class CrockpotRecipe {
   @PrimaryGeneratedColumn()
-  id: number;
+  id?: number;
 
   @Column()
   name: string;
@@ -20,10 +20,10 @@ export class CrockpotRecipe {
   type: FoodType;
 
   @Column({ nullable: true })
-  asset: string;
+  asset?: string;
 
   @Column({ nullable: true })
-  sideEffect: string;
+  sideEffect?: string;
 
   @OneToOne(() => RecipeStats, { cascade: true })
   @JoinColumn({ name: 'recipe_stat_id' })
