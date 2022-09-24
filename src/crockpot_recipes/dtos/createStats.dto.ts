@@ -1,8 +1,16 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsString } from 'class-validator';
+import { IsDecimal } from 'class-validator';
 
-export class CreateSkinStasDto {
+export class CreateSkinStatsDto {
   @ApiProperty()
-  @IsString()
-  name: string;
+  @IsDecimal()
+  sanity: number;
+
+  @ApiProperty()
+  @IsDecimal()
+  hunger: number;
+
+  @ApiProperty()
+  @IsDecimal()
+  health: number;
 }
