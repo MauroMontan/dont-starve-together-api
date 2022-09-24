@@ -8,7 +8,7 @@ async function bootstrap() {
   const config = new DocumentBuilder()
     .setTitle('Dont starve together API')
     .setDescription('The dont starve together API')
-    .setVersion('1.0')
+    .setVersion('0.1')
     .addTag('Survivors')
     .addTag('Items')
     .addTag('Crockpot Recipes')
