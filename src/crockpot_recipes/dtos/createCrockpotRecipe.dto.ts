@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsBoolean, IsEnum, IsString } from 'class-validator';
 import { FoodType } from '../enums/enums';
-import { CreateSkinStatsDto } from './createStats.dto';
+import { CreateRecipeStatsDto } from './createStats.dto';
 
 export class CreateCrockpotRecipeDto {
   @ApiProperty()
@@ -21,7 +21,7 @@ export class CreateCrockpotRecipeDto {
   sideEffect?: string;
 
   @ApiProperty()
-  stats: CreateSkinStatsDto;
+  stats: CreateRecipeStatsDto;
 
   @ApiProperty()
   @IsBoolean()

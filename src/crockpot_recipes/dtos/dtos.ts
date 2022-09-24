@@ -1,2 +1,4 @@
 export { CreateCrockpotRecipeDto } from './createCrockpotRecipe.dto';
-export { CreateSkinStatsDto } from './createStats.dto';
+export { CreateRecipeStatsDto } from './createStats.dto';
+
+export { CreateBackstoryDto } from './createBackstory.dto';

@@ -3,7 +3,7 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 @Entity()
 export class SurvivorStats {
   @PrimaryGeneratedColumn()
-  id: number;
+  id?: number;
 
   @Column('decimal')
   health: number;

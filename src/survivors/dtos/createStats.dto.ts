@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsDecimal } from 'class-validator';
 
-export class CreateRecipeStatsDto {
+export class CreateSurvivorStatsDto {
   @ApiProperty()
   @IsDecimal()
   sanity: number;

@@ -3,7 +3,7 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 @Entity()
 export class Backstory {
   @PrimaryGeneratedColumn()
-  id: number;
+  id?: number;
 
   @Column()
   title: string;

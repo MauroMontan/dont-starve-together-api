@@ -14,7 +14,7 @@ import { Skin } from 'src/skins/entities/entities';
 @Entity()
 export class Survivor {
   @PrimaryGeneratedColumn()
-  id: number;
+  id?: number;
 
   @Column({ unique: true })
   name: string;
@@ -41,9 +41,9 @@ export class Survivor {
   @JoinColumn({ name: 'favourite_food_id' })
   favouriteFood: CrockpotRecipe;
 
-  @OneToOne(() => SurvivorStats, { cascade: true })
-  @JoinColumn({ name: 'stats_id' })
-  stats: SurvivorStats;
+  // @OneToOne(() => SurvivorStats, { cascade: true })
+  // @JoinColumn({ name: 'stats_id' })
+  // stats: SurvivorStats;
 
   @OneToMany(() => Item, (item) => item.survivor, { cascade: true })
   entersTheConstantWith: Item[];

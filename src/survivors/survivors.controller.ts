@@ -7,17 +7,18 @@ import {
   Post,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
+import { CreateSurvivorDto } from './dtos/dtos';
 import { Survivor } from './entities/entities';
 import { SurvivorsService } from './survivors.service';
 
 @ApiTags('Survivors')
 @Controller('survivors')
 export class SurvivorsController {
-  constructor(private service: SurvivorsService) {}
+  constructor(private service: SurvivorsService) { }
 
   @Post()
   async createSurvivor(
-    @Body() survivor: any,
+    @Body() survivor: CreateSurvivorDto,
   ): Promise<Survivor | HttpException> {
     return await this.service.create(survivor);
   }
