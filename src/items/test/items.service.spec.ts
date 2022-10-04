@@ -50,6 +50,12 @@ describe('ItemsService', () => {
     expect(await service.create(mockItem)).toEqual(mockItem);
   });
 
+  it('should return an item by name', async () => {
+    jest.spyOn(service, 'getByName').mockResolvedValueOnce(mockItem);
+
+    expect(await service.getByName('custom item')).toEqual(mockItem);
+  });
+
   it('should return a item with a given name', async () => {
     jest.spyOn(service, 'getByName').mockResolvedValueOnce(mockItem);
 

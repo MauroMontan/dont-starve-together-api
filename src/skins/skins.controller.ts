@@ -1,4 +1,11 @@
-import { Body, Controller, Get, HttpException, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  HttpException,
+  Param,
+  Post,
+} from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { CreateSkinDto } from './dtos/createSkin.dto';
 import { Skin } from './entities/entities';
@@ -17,5 +24,10 @@ export class SkinsController {
   @Get()
   async getSkins(): Promise<Skin[]> {
     return await this.service.getAll();
+  }
+
+  @Get(':name')
+  async getSkin(@Param('name') name: string): Promise<Skin> {
+    return await this.service.getByName(name);
   }
 }

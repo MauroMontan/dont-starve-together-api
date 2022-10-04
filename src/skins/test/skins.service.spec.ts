@@ -43,6 +43,11 @@ describe('WardrobeService', () => {
     expect(skinRepository).toBeDefined();
   });
 
+  it('should return a skin', async () => {
+    jest.spyOn(service, 'getByName').mockResolvedValue(mockSkin);
+    expect(await service.getByName('skin name')).toEqual(mockSkin);
+  });
+
   it('should return a list of all skins', async () => {
     jest.spyOn(service, 'getAll').mockResolvedValue([mockSkin]);
     expect(await service.getAll()).toBeInstanceOf(Array);
