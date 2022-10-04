@@ -1,5 +1,6 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { UtilsService } from 'src/utils/utils.service';
 import { Repository } from 'typeorm';
 import { CreateItemDto } from './dtos/dtos';
 import { Item } from './entities/entities';
@@ -7,6 +8,7 @@ import { Item } from './entities/entities';
 @Injectable()
 export class ItemsService {
   constructor(
+    private utils: UtilsService,
     @InjectRepository(Item) private itemRepository: Repository<Item>,
   ) { }
 
@@ -19,6 +21,18 @@ export class ItemsService {
   }
 
   async getByName(name: string): Promise<Item> {
-    return this.itemRepository.findOne({ where: { name } });
+    try {
+      name = this.utils.capitalize(name);
+
+      return await this.itemRepository.findOne({ where: { name } });
+    } catch (error) {
+      throw new HttpException(
+        {
+          status: HttpStatus.NOT_FOUND,
+          error: 'item not found',
+        },
+        HttpStatus.NOT_FOUND,
+      );
+    }
   }
 }

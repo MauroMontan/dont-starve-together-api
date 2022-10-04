@@ -5,6 +5,21 @@ import { CrockpotRecipesService } from '../crockpot_recipes.service';
 import { CrockpotRecipe } from '../entities/entities';
 import { FoodType } from '../enums/enums';
 
+const mockRecipe = {
+  name: 'Banana Pop',
+  asset: 'asset image',
+  id: 1,
+  sideEffect: null,
+  isWarlySpecial: false,
+  stats: {
+    id: 1,
+    hunger: 50,
+    sanity: 20,
+    health: 30,
+  },
+  type: 'Veggie' as FoodType,
+};
+
 describe('CrockpotRecipesService', () => {
   const RECIPE_REPOSITORY_TOKEN = getRepositoryToken(CrockpotRecipe);
   let service: CrockpotRecipesService;
@@ -35,6 +50,12 @@ describe('CrockpotRecipesService', () => {
   });
   it('CrockpotRecipe repository should be defined', async () => {
     expect(crockpotRecipesRepository).toBeDefined();
+  });
+
+  it('return one recipe by name', async () => {
+    jest.spyOn(service, 'getByName').mockResolvedValue(mockRecipe);
+
+    expect(await service.getByName('banana Pop')).toEqual(mockRecipe);
   });
 
   it('get all recipes', async () => {

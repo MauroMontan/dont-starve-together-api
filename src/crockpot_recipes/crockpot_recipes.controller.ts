@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { CrockpotRecipesService } from './crockpot_recipes.service';
 import { CreateCrockpotRecipeDto } from './dtos/dtos';
@@ -19,5 +19,10 @@ export class CrockpotRecipesController {
   @Get()
   async getRecipes(): Promise<CrockpotRecipe[]> {
     return await this.service.getAll();
+  }
+
+  @Post(':name')
+  async getRecipeByName(@Param('name') name: string): Promise<CrockpotRecipe> {
+    return await this.service.getByName(name);
   }
 }

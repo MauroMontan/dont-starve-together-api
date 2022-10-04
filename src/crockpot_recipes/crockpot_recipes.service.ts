@@ -22,4 +22,10 @@ export class CrockpotRecipesService {
       },
     });
   }
+
+  async getByName(name: string): Promise<CrockpotRecipe> {
+    return await this.CrockpotRecipeRepository.findOne({
+      where: { name: name },
+    });
+  }
 }
