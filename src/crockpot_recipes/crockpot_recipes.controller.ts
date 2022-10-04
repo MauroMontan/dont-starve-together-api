@@ -28,7 +28,7 @@ export class CrockpotRecipesController {
     return await this.service.getAll();
   }
 
-  @Post(':name')
+  @Get(':name')
   async getRecipeByName(
     @Param('name') name: string,
   ): Promise<CrockpotRecipe | HttpException> {
