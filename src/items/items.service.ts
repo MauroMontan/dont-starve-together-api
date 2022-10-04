@@ -10,15 +10,15 @@ export class ItemsService {
     @InjectRepository(Item) private itemRepository: Repository<Item>,
   ) { }
 
-  async create(item: CreateItemDto) {
+  async create(item: CreateItemDto): Promise<Item> {
     return this.itemRepository.save(item);
   }
 
-  async getAll() {
+  async getAll(): Promise<Item[]> {
     return this.itemRepository.find();
   }
 
-  async getByName(name: string) {
+  async getByName(name: string): Promise<Item> {
     return this.itemRepository.findOne({ where: { name } });
   }
 }

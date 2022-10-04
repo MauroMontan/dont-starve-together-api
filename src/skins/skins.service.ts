@@ -8,7 +8,7 @@ import { Skin } from './entities/entities';
 export class SkinsService {
   constructor(
     @InjectRepository(Skin) private skinRepository: Repository<Skin>,
-  ) {}
+  ) { }
 
   async create(skin: CreateSkinDto): Promise<Skin | HttpException> {
     try {
