@@ -4,6 +4,7 @@ import { getRepositoryToken } from '@nestjs/typeorm';
 import { Survivor } from 'src/survivors/entities/entities';
 import { Item } from '../entities/entities';
 import { ItemsService } from '../items.service';
+import { UtilsService } from 'src/utils/utils.service';
 
 const mockItem = {
   id: 1,
@@ -18,10 +19,12 @@ describe('ItemsService', () => {
   const ITEM_TOKEN = getRepositoryToken(Item);
   let service: ItemsService;
   let itemRepository: Repository<Item>;
+  let utils: UtilsService;
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
         ItemsService,
+        UtilsService,
         {
           provide: ITEM_TOKEN,
           useValue: {
@@ -34,10 +37,15 @@ describe('ItemsService', () => {
 
     service = module.get<ItemsService>(ItemsService);
     itemRepository = module.get<Repository<Item>>(ITEM_TOKEN);
+    utils = module.get<UtilsService>(UtilsService);
   });
 
   it('should be defined', () => {
     expect(service).toBeDefined();
+  });
+
+  it('utils should be defined', () => {
+    expect(utils).toBeDefined();
   });
 
   it('item repository should be defined', () => {

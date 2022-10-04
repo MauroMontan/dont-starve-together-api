@@ -1,5 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
+import { UtilsService } from 'src/utils/utils.service';
 import { Repository } from 'typeorm';
 import { CreateItemDto } from '../dtos/createItem.dto';
 import { Item } from '../entities/entities';
@@ -17,12 +18,14 @@ describe('ItemsController', () => {
   let controller: ItemsController;
   let service: ItemsService;
   let itemRepository: Repository<Item>;
+  let utils: UtilsService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [ItemsController],
       providers: [
         ItemsService,
+        UtilsService,
         {
           provide: ITEM_REPOSITORY,
           useValue: {
@@ -36,6 +39,7 @@ describe('ItemsController', () => {
     controller = module.get<ItemsController>(ItemsController);
     service = module.get<ItemsService>(ItemsService);
     itemRepository = module.get<Repository<Item>>(ITEM_REPOSITORY);
+    utils = module.get<UtilsService>(UtilsService);
   });
   it('should be defined', () => {
     expect(controller).toBeDefined();
@@ -44,6 +48,11 @@ describe('ItemsController', () => {
   it('item service should be defined', () => {
     expect(service).toBeDefined();
   });
+
+  it('utils should be defined', () => {
+    expect(utils).toBeDefined();
+  });
+
   it('item repository service should be defined', () => {
     expect(itemRepository).toBeDefined();
   });

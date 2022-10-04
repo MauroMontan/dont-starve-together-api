@@ -29,7 +29,7 @@ export class SurvivorsController {
   }
 
   @Get(':name')
-  async getSurvivorByName(@Param('name') name: string): Promise<Survivor> {
+  async getSurvivorByName(@Param('name') name: string): Promise<Survivor | HttpException> {
     return await this.service.getByName(name);
   }
 }

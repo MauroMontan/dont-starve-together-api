@@ -1,4 +1,11 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  HttpException,
+  Param,
+  Post,
+} from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { CrockpotRecipesService } from './crockpot_recipes.service';
 import { CreateCrockpotRecipeDto } from './dtos/dtos';
@@ -22,7 +29,9 @@ export class CrockpotRecipesController {
   }
 
   @Post(':name')
-  async getRecipeByName(@Param('name') name: string): Promise<CrockpotRecipe> {
+  async getRecipeByName(
+    @Param('name') name: string,
+  ): Promise<CrockpotRecipe | HttpException> {
     return await this.service.getByName(name);
   }
 }

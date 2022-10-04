@@ -1,5 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
+import { UtilsService } from 'src/utils/utils.service';
 import { Repository } from 'typeorm';
 import { CrockpotRecipesService } from '../crockpot_recipes.service';
 import { CrockpotRecipe } from '../entities/entities';
@@ -24,11 +25,13 @@ describe('CrockpotRecipesService', () => {
   const RECIPE_REPOSITORY_TOKEN = getRepositoryToken(CrockpotRecipe);
   let service: CrockpotRecipesService;
   let crockpotRecipesRepository: Repository<CrockpotRecipe>;
+  let utils: UtilsService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
         CrockpotRecipesService,
+        UtilsService,
         {
           provide: RECIPE_REPOSITORY_TOKEN,
           useValue: {
@@ -39,6 +42,7 @@ describe('CrockpotRecipesService', () => {
       ],
     }).compile();
 
+    utils = module.get<UtilsService>(UtilsService);
     service = module.get<CrockpotRecipesService>(CrockpotRecipesService);
     crockpotRecipesRepository = module.get<Repository<CrockpotRecipe>>(
       RECIPE_REPOSITORY_TOKEN,

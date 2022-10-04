@@ -1,5 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
+import { UtilsService } from 'src/utils/utils.service';
 import { Repository } from 'typeorm';
 import { CrockpotRecipesController } from '../crockpot_recipes.controller';
 import { CrockpotRecipesService } from '../crockpot_recipes.service';
@@ -26,11 +27,14 @@ describe('CrockpotRecipesController', () => {
   let controller: CrockpotRecipesController;
   let service: CrockpotRecipesService;
   let crockpotRecipesRepository: Repository<CrockpotRecipe>;
+  let utils: UtilsService;
+
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [CrockpotRecipesController],
       providers: [
         CrockpotRecipesService,
+        UtilsService,
         {
           provide: RECIPE_TOKEN,
           useValue: {
@@ -41,6 +45,7 @@ describe('CrockpotRecipesController', () => {
       ],
     }).compile();
 
+    utils = module.get<UtilsService>(UtilsService);
     controller = module.get<CrockpotRecipesController>(
       CrockpotRecipesController,
     );
@@ -51,6 +56,10 @@ describe('CrockpotRecipesController', () => {
 
   it('should be defined', () => {
     expect(controller).toBeDefined();
+  });
+
+  it('utiils should be defined', () => {
+    expect(utils).toBeDefined();
   });
 
   it('crockpot recipe service should be defined', () => {

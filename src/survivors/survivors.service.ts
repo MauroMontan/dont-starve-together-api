@@ -43,11 +43,21 @@ export class SurvivorsService {
     });
   }
 
-  async getByName(name: string): Promise<Survivor> {
-    const survivorName = this.utils.capitalize(name);
-    return await this.survivorRepository.findOne({
-      where: { name: survivorName },
-      relations: this.relations,
-    });
+  async getByName(name: string): Promise<Survivor | HttpException> {
+    try {
+      const survivorName = this.utils.capitalize(name);
+      return await this.survivorRepository.findOne({
+        where: { name: survivorName },
+        relations: this.relations,
+      });
+    } catch (error) {
+      throw new HttpException(
+        {
+          status: HttpStatus.UNPROCESSABLE_ENTITY,
+          error: 'survivor already exists',
+        },
+        HttpStatus.UNPROCESSABLE_ENTITY,
+      );
+    }
   }
 }

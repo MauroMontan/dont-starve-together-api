@@ -1,6 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Survivor } from 'src/survivors/entities/entities';
+import { UtilsService } from 'src/utils/utils.service';
 import { Skin } from '../entities/skin.entity';
 import { Collection } from '../enums/enums';
 import { SkinsController } from '../skins.controller';
@@ -20,11 +21,13 @@ describe('SkinsController', () => {
   const SKIN_TOKEN = getRepositoryToken(Skin);
   let controller: SkinsController;
   let service: SkinsService;
+  let utils: UtilsService;
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [SkinsController],
       providers: [
         SkinsService,
+        UtilsService,
         {
           provide: SKIN_TOKEN,
           useValue: {},
@@ -34,10 +37,15 @@ describe('SkinsController', () => {
 
     controller = module.get<SkinsController>(SkinsController);
     service = module.get<SkinsService>(SkinsService);
+    utils = module.get<UtilsService>(UtilsService);
   });
 
   it('should be defined', () => {
     expect(controller).toBeDefined();
+  });
+
+  it('utils should be defined', () => {
+    expect(utils).toBeDefined();
   });
 
   it('skin service should be defined', () => {
