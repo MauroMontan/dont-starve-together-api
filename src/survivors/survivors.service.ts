@@ -43,7 +43,7 @@ export class SurvivorsService {
     });
   }
 
-  async getOne(name: string): Promise<Survivor> {
+  async getByName(name: string): Promise<Survivor> {
     const survivorName = this.utils.capitalize(name);
     return await this.survivorRepository.findOne({
       where: { name: survivorName },

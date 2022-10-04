@@ -8,7 +8,7 @@ import { Item } from './entities/entities';
 export class ItemsService {
   constructor(
     @InjectRepository(Item) private itemRepository: Repository<Item>,
-  ) {}
+  ) { }
 
   async create(item: CreateItemDto) {
     return this.itemRepository.save(item);
@@ -16,5 +16,9 @@ export class ItemsService {
 
   async getAll() {
     return this.itemRepository.find();
+  }
+
+  async getByName(name: string) {
+    return this.itemRepository.findOne({ where: { name } });
   }
 }

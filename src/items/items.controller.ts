@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { ApiProperty, ApiTags } from '@nestjs/swagger';
 import { CreateItemDto } from './dtos/dtos';
 import { Item } from './entities/entities';
@@ -18,5 +18,10 @@ export class ItemsController {
   @Get()
   async getItems(): Promise<Item[]> {
     return await this.service.getAll();
+  }
+
+  @Get(':name')
+  async getItemByName(@Param('name') name: string): Promise<Item> {
+    return await this.service.getByName(name);
   }
 }

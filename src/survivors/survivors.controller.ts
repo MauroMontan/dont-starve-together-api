@@ -30,6 +30,6 @@ export class SurvivorsController {
 
   @Get(':name')
   async getSurvivorByName(@Param('name') name: string): Promise<Survivor> {
-    return await this.service.getOne(name);
+    return await this.service.getByName(name);
   }
 }

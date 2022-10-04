@@ -7,7 +7,7 @@ import { ItemsService } from '../items.service';
 
 const mockItem = {
   id: 1,
-  name: 'custom item ',
+  name: 'custom item',
   asset: 'asset image',
   description: 'cool item descriiption',
   category: [],
@@ -48,6 +48,12 @@ describe('ItemsService', () => {
     jest.spyOn(service, 'create').mockResolvedValueOnce(mockItem);
 
     expect(await service.create(mockItem)).toEqual(mockItem);
+  });
+
+  it('should return a item with a given name', async () => {
+    jest.spyOn(service, 'getByName').mockResolvedValueOnce(mockItem);
+
+    expect(await service.getByName('custom item')).toEqual(mockItem);
   });
 
   it('should return a list of all items', async () => {

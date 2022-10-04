@@ -70,9 +70,9 @@ describe('SurvivorsService', () => {
   });
 
   it('should return one survivor by giving the name', async () => {
-    jest.spyOn(service, 'getOne').mockResolvedValue(mockResponse);
+    jest.spyOn(service, 'getByName').mockResolvedValue(mockResponse);
 
-    expect(await service.getOne('Wendy')).toBe(mockResponse);
+    expect(await service.getByName('Wendy')).toBe(mockResponse);
   });
   it('should return a list of survivors', async () => {
     jest.spyOn(service, 'getAll').mockResolvedValue([mockResponse]);

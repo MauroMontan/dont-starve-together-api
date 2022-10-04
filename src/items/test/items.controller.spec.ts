@@ -7,7 +7,7 @@ import { ItemsController } from '../items.controller';
 import { ItemsService } from '../items.service';
 
 let mockItem: CreateItemDto = {
-  name: 'custom item ',
+  name: 'custom item',
   asset: 'asset image',
   description: 'cool item descriiption',
   category: [],
@@ -56,6 +56,12 @@ describe('ItemsController', () => {
         return mockItem;
       });
     expect(await controller.createItem(mockItem)).toEqual(mockItem);
+  });
+
+  it('should return an item by giving a name', async () => {
+    jest.spyOn(controller, 'getItemByName').mockResolvedValue(mockItem);
+
+    expect(await controller.getItemByName('custom item')).toEqual(mockItem);
   });
 
   it('should return a list of items', async () => {
