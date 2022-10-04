@@ -24,12 +24,12 @@ export class SurvivorsController {
   }
 
   @Get()
-  async listAllSurvivors(): Promise<Survivor[]> {
+  async getSurvivors(): Promise<Survivor[]> {
     return await this.service.getAll();
   }
 
   @Get(':name')
-  async getOneSurvivor(@Param('name') name: string): Promise<Survivor> {
+  async getSurvivorByName(@Param('name') name: string): Promise<Survivor> {
     return await this.service.getOne(name);
   }
 }

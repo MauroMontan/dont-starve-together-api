@@ -7,7 +7,7 @@ import { SkinsService } from './skins.service';
 @ApiTags('Skins')
 @Controller('skins')
 export class SkinsController {
-  constructor(private service: SkinsService) {}
+  constructor(private service: SkinsService) { }
 
   @Post()
   async createSkin(@Body() skin: CreateSkinDto): Promise<Skin | HttpException> {
@@ -15,7 +15,7 @@ export class SkinsController {
   }
 
   @Get()
-  async getAllSkins(): Promise<Skin[]> {
+  async getSkins(): Promise<Skin[]> {
     return await this.service.getAll();
   }
 }

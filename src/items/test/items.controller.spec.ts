@@ -59,9 +59,9 @@ describe('ItemsController', () => {
   });
 
   it('should return a list of items', async () => {
-    jest.spyOn(controller, 'ListAllItems').mockResolvedValue([mockItem]);
+    jest.spyOn(controller, 'getItems').mockResolvedValue([mockItem]);
 
-    expect(await controller.ListAllItems()).toBeInstanceOf(Array);
-    expect(await controller.ListAllItems()).toEqual([mockItem]);
+    expect(await controller.getItems()).toBeInstanceOf(Array);
+    expect(await controller.getItems()).toEqual([mockItem]);
   });
 });

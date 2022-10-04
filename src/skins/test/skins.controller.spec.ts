@@ -50,9 +50,9 @@ describe('SkinsController', () => {
   });
 
   it('should return a list of skins', async () => {
-    jest.spyOn(controller, 'getAllSkins').mockResolvedValue([mockSkin]);
+    jest.spyOn(controller, 'getSkins').mockResolvedValue([mockSkin]);
 
-    expect(await controller.getAllSkins()).toBeInstanceOf(Array);
-    expect(await controller.getAllSkins()).toEqual([mockSkin]);
+    expect(await controller.getSkins()).toBeInstanceOf(Array);
+    expect(await controller.getSkins()).toEqual([mockSkin]);
   });
 });

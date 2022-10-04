@@ -73,10 +73,10 @@ describe('CrockpotRecipesController', () => {
 
   it('should return a list of crockpot recipes', async () => {
     jest
-      .spyOn(controller, 'listRecipes')
+      .spyOn(controller, 'getRecipes')
       .mockResolvedValue([mockCrockpotRecipe]);
 
-    expect(await controller.listRecipes()).toBeInstanceOf(Array);
-    expect(await controller.listRecipes()).toEqual([mockCrockpotRecipe]);
+    expect(await controller.getRecipes()).toBeInstanceOf(Array);
+    expect(await controller.getRecipes()).toEqual([mockCrockpotRecipe]);
   });
 });

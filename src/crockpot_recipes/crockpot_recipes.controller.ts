@@ -17,7 +17,7 @@ export class CrockpotRecipesController {
   }
 
   @Get()
-  async listRecipes(): Promise<CrockpotRecipe[]> {
+  async getRecipes(): Promise<CrockpotRecipe[]> {
     return await this.service.getAll();
   }
 }

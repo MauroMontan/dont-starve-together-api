@@ -7,7 +7,7 @@ import { ItemsService } from './items.service';
 @ApiTags('Items')
 @Controller('items')
 export class ItemsController {
-  constructor(private service: ItemsService) {}
+  constructor(private service: ItemsService) { }
 
   @Post()
   @ApiProperty({ type: [CreateItemDto] })
@@ -16,7 +16,7 @@ export class ItemsController {
   }
 
   @Get()
-  async ListAllItems(): Promise<Item[]> {
+  async getItems(): Promise<Item[]> {
     return await this.service.getAll();
   }
 }

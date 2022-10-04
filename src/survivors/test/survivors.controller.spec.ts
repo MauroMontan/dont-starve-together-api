@@ -61,19 +61,17 @@ describe('SurvivorsController', () => {
   });
 
   it('should return a list of survivors', async () => {
-    jest
-      .spyOn(controller, 'listAllSurvivors')
-      .mockResolvedValue([mockSurvivor]);
+    jest.spyOn(controller, 'getSurvivors').mockResolvedValue([mockSurvivor]);
 
-    expect(await controller.listAllSurvivors()).toBeInstanceOf(Array);
-    expect(await controller.listAllSurvivors()).toEqual([mockSurvivor]);
+    expect(await controller.getSurvivors()).toBeInstanceOf(Array);
+    expect(await controller.getSurvivors()).toEqual([mockSurvivor]);
   });
 
   it('should return a survivor by name', async () => {
     jest
-      .spyOn(controller, 'getOneSurvivor')
+      .spyOn(controller, 'getSurvivorByName')
       .mockResolvedValueOnce(mockSurvivor);
 
-    expect(await controller.getOneSurvivor('wEnDy')).toEqual(mockSurvivor);
+    expect(await controller.getSurvivorByName('wEnDy')).toEqual(mockSurvivor);
   });
 });
