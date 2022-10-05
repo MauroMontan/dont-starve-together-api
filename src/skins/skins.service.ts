@@ -64,9 +64,9 @@ export class SkinsService {
     }
   }
 
-  async getAllByCollections(collection: Collection): Promise<Skin[]> {
+  async getByCollection(collection: Collection): Promise<Skin[]> {
     try {
-      return this.skinRepository.find({
+      const skin = this.skinRepository.find({
         where: { collection },
         relations: {
           survivor: true,
@@ -77,11 +77,13 @@ export class SkinsService {
           },
         },
       });
+
+      return await skin;
     } catch (error) {
       throw new HttpException(
         {
           status: HttpStatus.NOT_FOUND,
-          error: 'skin does not exist',
+          error: 'Collection does not exist',
         },
         HttpStatus.NOT_FOUND,
       );

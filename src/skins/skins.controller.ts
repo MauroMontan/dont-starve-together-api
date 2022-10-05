@@ -32,10 +32,11 @@ export class SkinsController {
     return await this.service.getByName(name);
   }
 
+
   @Get('/collections/:collection')
-  async getSkinsByCollection(
+  async getSkinByCollection(
     @Param('collection') collection: Collection,
   ): Promise<Skin[] | HttpException> {
-    return await this.service.getAllByCollections(collection);
+    return await this.service.getByCollection(collection);
   }
 }
