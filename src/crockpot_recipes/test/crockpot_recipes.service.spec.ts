@@ -52,6 +52,11 @@ describe('CrockpotRecipesService', () => {
   it('should be defined', () => {
     expect(service).toBeDefined();
   });
+
+  it('utils should be defined', () => {
+    expect(utils).toBeDefined();
+  });
+
   it('CrockpotRecipe repository should be defined', async () => {
     expect(crockpotRecipesRepository).toBeDefined();
   });

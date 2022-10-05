@@ -23,7 +23,7 @@ export class CreateCrockpotRecipeDto {
   @ApiProperty({ type: () => CreateRecipeStatsDto })
   stats: CreateRecipeStatsDto;
 
-  @ApiProperty()
+  @ApiProperty({ default: false })
   @IsBoolean()
   isWarlySpecial: boolean;
 }

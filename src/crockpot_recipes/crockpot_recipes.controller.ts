@@ -28,6 +28,11 @@ export class CrockpotRecipesController {
     return await this.service.getAll();
   }
 
+  @Get('warlys-recipes')
+  async getWarlyRecipes(): Promise<CrockpotRecipe[] | HttpException> {
+    return await this.service.getWarlyRecipes();
+  }
+
   @Get(':name')
   async getRecipeByName(
     @Param('name') name: string,

@@ -27,14 +27,33 @@ export class CrockpotRecipesService {
 
   async getByName(name: string): Promise<CrockpotRecipe | HttpException> {
     try {
-      return await this.CrockpotRecipeRepository.findOneOrFail({
+      name = this.utils.capitalize(name);
+      const recipes = this.CrockpotRecipeRepository.findOneOrFail({
         where: { name: name },
       });
+
+      return await recipes;
     } catch (error) {
       throw new HttpException(
         {
           status: HttpStatus.NOT_FOUND,
           error: 'recipe not found',
+        },
+        HttpStatus.NOT_FOUND,
+      );
+    }
+  }
+
+  async getWarlyRecipes(): Promise<CrockpotRecipe[] | HttpException> {
+    try {
+      return await this.CrockpotRecipeRepository.findBy({
+        isWarlySpecial: true,
+      });
+    } catch (error) {
+      throw new HttpException(
+        {
+          status: HttpStatus.NOT_FOUND,
+          error: 'recipes not found',
         },
         HttpStatus.NOT_FOUND,
       );
