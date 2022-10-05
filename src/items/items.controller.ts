@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, HttpException, Param, Post } from '@nestjs/common';
 import { ApiProperty, ApiTags } from '@nestjs/swagger';
 import { CreateItemDto } from './dtos/dtos';
 import { Item } from './entities/entities';
@@ -21,7 +21,7 @@ export class ItemsController {
   }
 
   @Get(':name')
-  async getItemByName(@Param('name') name: string): Promise<Item> {
+  async getItemByName(@Param('name') name: string): Promise<Item | HttpException> {
     return await this.service.getByName(name);
   }
 }

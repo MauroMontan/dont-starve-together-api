@@ -20,16 +20,16 @@ export class ItemsService {
     return this.itemRepository.find();
   }
 
-  async getByName(name: string): Promise<Item> {
+  async getByName(name: string): Promise<Item | HttpException> {
     try {
       name = this.utils.capitalize(name);
 
-      return await this.itemRepository.findOne({ where: { name } });
+      return await this.itemRepository.findOneByOrFail({ name });
     } catch (error) {
       throw new HttpException(
         {
           status: HttpStatus.NOT_FOUND,
-          error: 'item not found',
+          error: 'Item not found',
         },
         HttpStatus.NOT_FOUND,
       );
