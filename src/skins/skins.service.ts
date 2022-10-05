@@ -4,6 +4,7 @@ import { UtilsService } from 'src/utils/utils.service';
 import { Repository } from 'typeorm';
 import { CreateSkinDto } from './dtos/dtos';
 import { Skin } from './entities/entities';
+import { Collection } from './enums/collections.enum';
 
 @Injectable()
 export class SkinsService {
@@ -52,6 +53,30 @@ export class SkinsService {
     try {
       name = this.utils.capitalize(name);
       return await this.skinRepository.findOneByOrFail({ name: name });
+    } catch (error) {
+      throw new HttpException(
+        {
+          status: HttpStatus.NOT_FOUND,
+          error: 'skin does not exist',
+        },
+        HttpStatus.NOT_FOUND,
+      );
+    }
+  }
+
+  async getAllByCollections(collection: Collection): Promise<Skin[]> {
+    try {
+      return this.skinRepository.find({
+        where: { collection },
+        relations: {
+          survivor: true,
+        },
+        select: {
+          survivor: {
+            name: true,
+          },
+        },
+      });
     } catch (error) {
       throw new HttpException(
         {

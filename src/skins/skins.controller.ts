@@ -9,6 +9,7 @@ import {
 import { ApiTags } from '@nestjs/swagger';
 import { CreateSkinDto } from './dtos/createSkin.dto';
 import { Skin } from './entities/entities';
+import { Collection } from './enums/collections.enum';
 import { SkinsService } from './skins.service';
 
 @ApiTags('Skins')
@@ -29,5 +30,12 @@ export class SkinsController {
   @Get(':name')
   async getSkin(@Param('name') name: string): Promise<Skin> {
     return await this.service.getByName(name);
+  }
+
+  @Get('/collections/:collection')
+  async getSkinsByCollection(
+    @Param('collection') collection: Collection,
+  ): Promise<Skin[] | HttpException> {
+    return await this.service.getAllByCollections(collection);
   }
 }

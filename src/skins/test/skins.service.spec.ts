@@ -56,6 +56,13 @@ describe('WardrobeService', () => {
     expect(await service.getByName('skin name')).toEqual(mockSkin);
   });
 
+  it('should return skins by collection', async () => {
+    jest.spyOn(service, 'getAllByCollections').mockResolvedValue([mockSkin]);
+    expect(await service.getAllByCollections('Abyssal' as Collection)).toEqual([
+      mockSkin,
+    ]);
+  });
+
   it('should return a list of all skins', async () => {
     jest.spyOn(service, 'getAll').mockResolvedValue([mockSkin]);
     expect(await service.getAll()).toBeInstanceOf(Array);
