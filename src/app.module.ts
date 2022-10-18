@@ -18,17 +18,14 @@ import { Item } from './items/entities/entities';
 import { SkinsModule } from './skins/skins.module';
 import { UtilsModule } from './utils/utils.module';
 import { Skin } from './skins/entities/entities';
+import { Config } from './config/config.provider';
 
 //WARNING: replace with the right database info
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
-      port: 5434,
-      username: 'root',
-      password: 'root',
-      database: 'dst-dev-db',
+      url: Config.DATABASE_URL,
       entities: [
         CrockpotRecipe,
         Survivor,
