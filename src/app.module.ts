@@ -5,13 +5,13 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { SurvivorsModule } from './survivors/survivors.module';
 import { CrockpotRecipesModule } from './crockpot_recipes/crockpot_recipes.module';
 import {
-  CrockpotRecipe,
-  RecipeStats,
+	CrockpotRecipe,
+	RecipeStats,
 } from './crockpot_recipes/entities/entities';
 import {
-  Backstory,
-  Survivor,
-  SurvivorStats,
+	Backstory,
+	Survivor,
+	SurvivorStats,
 } from './survivors/entities/entities';
 import { ItemsModule } from './items/items.module';
 import { Item } from './items/entities/entities';
@@ -22,28 +22,28 @@ import { Config } from './config/config.provider';
 
 //WARNING: replace with the right database info
 @Module({
-  imports: [
-    TypeOrmModule.forRoot({
-      type: 'postgres',
-      url: Config.DATABASE_URL,
-      entities: [
-        CrockpotRecipe,
-        Survivor,
-        RecipeStats,
-        SurvivorStats,
-        Item,
-        Backstory,
-        Skin,
-      ],
-      synchronize: true, //TODO: change false on prod
-    }),
-    CrockpotRecipesModule,
-    SurvivorsModule,
-    ItemsModule,
-    SkinsModule,
-    UtilsModule,
-  ],
-  controllers: [AppController],
-  providers: [AppService],
+	imports: [
+		TypeOrmModule.forRoot({
+			type: 'postgres',
+			url: Config.DATABASE_URL,
+			entities: [
+				CrockpotRecipe,
+				Survivor,
+				RecipeStats,
+				SurvivorStats,
+				Item,
+				Backstory,
+				Skin,
+			],
+			synchronize: true, //TODO: change false on prod
+		}),
+		CrockpotRecipesModule,
+		SurvivorsModule,
+		ItemsModule,
+		SkinsModule,
+		UtilsModule,
+	],
+	controllers: [AppController],
+	providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }

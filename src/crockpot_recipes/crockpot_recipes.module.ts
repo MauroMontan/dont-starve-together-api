@@ -9,4 +9,4 @@ import { CrockpotRecipe } from './entities/entities';
   providers: [CrockpotRecipesService],
   controllers: [CrockpotRecipesController],
 })
-export class CrockpotRecipesModule {}
+export class CrockpotRecipesModule { }

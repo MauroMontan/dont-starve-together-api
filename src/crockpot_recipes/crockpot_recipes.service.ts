@@ -1,5 +1,5 @@
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { EntityNotFoundError, Repository } from 'typeorm';
 import { CrockpotRecipe } from './entities/entities';
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { CreateCrockpotRecipeDto } from './dtos/dtos';
@@ -14,7 +14,16 @@ export class CrockpotRecipesService {
   ) { }
 
   async create(recipe: CreateCrockpotRecipeDto): Promise<CrockpotRecipe> {
-    return this.CrockpotRecipeRepository.save(recipe);
+    let existingRecipe: CrockpotRecipe;
+    let name = this.utils.capitalize(recipe.name);
+
+    existingRecipe = await this.getByName(name);
+
+    if (existingRecipe === null) {
+      return this.CrockpotRecipeRepository.save({ ...recipe, name });
+    } else {
+      throw new HttpException("recipe already exists", HttpStatus.UNPROCESSABLE_ENTITY)
+    }
   }
 
   async getAll(): Promise<CrockpotRecipe[]> {
@@ -25,23 +34,14 @@ export class CrockpotRecipesService {
     });
   }
 
-  async getByName(name: string): Promise<CrockpotRecipe | HttpException> {
-    try {
-      name = this.utils.capitalize(name);
-      const recipes = this.CrockpotRecipeRepository.findOneOrFail({
-        where: { name: name },
-      });
+  async getByName(name: string): Promise<CrockpotRecipe> {
+    name = this.utils.capitalize(name);
+    const recipes = this.CrockpotRecipeRepository.findOne({
+      where: { name: name },
+    });
 
-      return await recipes;
-    } catch (error) {
-      throw new HttpException(
-        {
-          status: HttpStatus.NOT_FOUND,
-          error: 'recipe not found',
-        },
-        HttpStatus.NOT_FOUND,
-      );
-    }
+    return await recipes;
+
   }
 
   async getWarlyRecipes(): Promise<CrockpotRecipe[] | HttpException> {
