@@ -16,6 +16,11 @@ import { CrockpotRecipe } from './entities/entities';
 export class CrockpotRecipesController {
   constructor(private service: CrockpotRecipesService) { }
 
+  /**
+  * This controller creates a new recipe
+  * @param CrockpotRecipe
+  * @returns CrockpotRecipe
+  **/
   @Post()
   async createCrockpotRecipe(
     @Body() recipe: CreateCrockpotRecipeDto,
@@ -23,18 +28,37 @@ export class CrockpotRecipesController {
     return this.service.create(recipe);
   }
 
+  /**
+  * This controller returns all the recipes 
+  * @returns CrockpotRecipe[]
+  **/
   @Get()
   async getRecipes(): Promise<CrockpotRecipe[]> {
     return await this.service.getAll();
   }
 
+
+  /**
+   * This controller returns all Warlys recipes
+   * @returns CrockpotRecipe[]
+  **/
   @Get('warlys-recipes')
   async getWarlyRecipes(): Promise<CrockpotRecipe[] | HttpException> {
     return await this.service.getWarlyRecipes();
   }
 
+  /**
+   * This controller returns a recipe object by name
+   * @param name - a string value
+   * @returns CrockpotRecipe Object
+   *
+   **/
   @Get(':name')
   async getRecipeByName(@Param('name') name: string): Promise<CrockpotRecipe> {
     return await this.service.getByName(name);
+    this.getRecipeByName
   }
 }
+
+Math.floor
+
