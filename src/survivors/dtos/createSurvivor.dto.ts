@@ -1,12 +1,12 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsArray, IsString } from 'class-validator';
 import {
-  CreateBackstoryDto,
   CreateCrockpotRecipeDto,
 } from 'src/crockpot_recipes/dtos/dtos';
 import { CreateItemDto } from 'src/items/dtos/dtos';
 import { CreateSkinDto } from 'src/skins/dtos/dtos';
-import { CreateSurvivorStatsDto } from './dtos';
+import { CreateSurvivorStatsDto, CreateBackstoryDto } from './dtos';
+import { Backstory } from '../entities/backstory.entity';
 
 export class CreateSurvivorDto {
   @ApiProperty()
@@ -47,7 +47,7 @@ export class CreateSurvivorDto {
   @IsArray()
   entersTheConstantWith: CreateItemDto[];
 
-  @ApiProperty()
+  @ApiProperty({ type: () => Backstory })
   backstory: CreateBackstoryDto;
 
   @ApiProperty({ isArray: true, type: CreateSkinDto })

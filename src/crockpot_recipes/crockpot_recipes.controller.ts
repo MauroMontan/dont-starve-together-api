@@ -56,9 +56,5 @@ export class CrockpotRecipesController {
   @Get(':name')
   async getRecipeByName(@Param('name') name: string): Promise<CrockpotRecipe> {
     return await this.service.getByName(name);
-    this.getRecipeByName
   }
 }
-
-Math.floor
-
