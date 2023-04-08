@@ -9,4 +9,4 @@ import { Survivor } from './entities/entities';
   providers: [SurvivorsService],
   controllers: [SurvivorsController],
 })
-export class SurvivorsModule {}
+export class SurvivorsModule { }

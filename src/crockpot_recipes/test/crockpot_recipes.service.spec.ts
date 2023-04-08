@@ -4,11 +4,13 @@ import { UtilsService } from 'src/utils/utils.service';
 import { Repository } from 'typeorm';
 import { CrockpotRecipesService } from '../crockpot_recipes.service';
 import { CrockpotRecipe } from '../entities/entities';
-import { FoodType } from '../enums/enums';
+import { CookingTime, FoodType, Spoils } from '../enums/enums';
 
 const mockRecipe = {
   name: 'Banana Pop',
   asset: 'asset image',
+  spoils: "Quickly" as Spoils,
+  cookingTime: "Long" as CookingTime,
   id: 1,
   sideEffect: null,
   isWarlySpecial: false,
@@ -72,6 +74,8 @@ describe('CrockpotRecipesService', () => {
       {
         name: 'Banana Pop',
         asset: 'asset image',
+        cookingTime: "Long" as CookingTime,
+        spoils: "Quickly" as Spoils,
         id: 1,
         sideEffect: null,
         isWarlySpecial: false,
