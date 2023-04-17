@@ -15,6 +15,14 @@ export class CreateSurvivorDto {
 
   @ApiProperty()
   @IsString()
+  bigportrait: string;
+
+  @ApiProperty()
+  @IsString()
+  portrait: string;
+
+  @ApiProperty()
+  @IsString()
   nickname: string;
 
   @ApiProperty()

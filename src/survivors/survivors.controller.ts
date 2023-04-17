@@ -18,8 +18,7 @@ export class SurvivorsController {
 
   @Post()
   async createSurvivor(
-    @Body() survivor: CreateSurvivorDto,
-  ): Promise<Survivor | HttpException> {
+    @Body() survivor: CreateSurvivorDto): Promise<Survivor> {
     return await this.service.create(survivor);
   }
 

@@ -3,6 +3,7 @@ import { Injectable } from '@nestjs/common';
 @Injectable()
 export class UtilsService {
   capitalize(phrase: string): string {
+
     if (phrase.length !== 0) {
       const words = phrase.split(' ');
 

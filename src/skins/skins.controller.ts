@@ -32,6 +32,11 @@ export class SkinsController {
     return await this.service.getByName(name);
   }
 
+  @Get("/by-survivor/:name")
+  async getAllSurvivorSkins(@Param("name") name: string): Promise<Skin[]> {
+    return await this.service.getBySurvivor(name);
+  }
+
 
   @Get('/collections/:collection')
   async getSkinByCollection(

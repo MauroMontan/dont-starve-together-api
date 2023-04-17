@@ -22,6 +22,9 @@ export class Skin {
   @Column()
   bigportrait: string;
 
+  @Column()
+  vignette: string;
+
   @Column({ type: 'enum', enum: Collection })
   collection: Collection;
 

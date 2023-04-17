@@ -23,6 +23,12 @@ export class Survivor {
   nickname: string;
 
   @Column()
+  bigportrait: string;
+
+  @Column()
+  portrait: string;
+
+  @Column()
   description: string;
 
   @Column({ nullable: true })
@@ -39,7 +45,10 @@ export class Survivor {
 
   @OneToOne(() => CrockpotRecipe, { cascade: true, nullable: true })
   @JoinColumn({ name: 'favourite_food_id' })
-  favouriteFood: CrockpotRecipe;
+  favouriteFood?: CrockpotRecipe;
+
+  @Column({ nullable: true })
+  favourite_food_id?: number;
 
   @OneToOne(() => SurvivorStats, { cascade: true })
   @JoinColumn({ name: 'stats_id' })
@@ -48,7 +57,7 @@ export class Survivor {
   @OneToMany(() => Item, (item) => item.survivor, { cascade: true })
   entersTheConstantWith: Item[];
 
-  @OneToOne(() => Backstory, { cascade: true })
+  @OneToOne(() => Backstory, { cascade: true, nullable: true })
   @JoinColumn({ name: 'backstory_id' })
   backstory: Backstory;
 

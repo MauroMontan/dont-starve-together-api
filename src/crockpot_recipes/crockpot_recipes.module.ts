@@ -8,5 +8,6 @@ import { CrockpotRecipe } from './entities/entities';
   imports: [TypeOrmModule.forFeature([CrockpotRecipe])],
   providers: [CrockpotRecipesService],
   controllers: [CrockpotRecipesController],
+  exports: [CrockpotRecipesService]
 })
 export class CrockpotRecipesModule { }

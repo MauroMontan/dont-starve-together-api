@@ -7,7 +7,6 @@ export class CreateCrockpotRecipeDto {
   @ApiProperty()
   @IsString()
   name: string;
-
   @ApiProperty({ enum: FoodType, enumName: 'Food type' })
   @IsEnum(FoodType)
   type: FoodType;

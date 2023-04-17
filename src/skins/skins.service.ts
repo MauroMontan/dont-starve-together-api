@@ -15,7 +15,9 @@ export class SkinsService {
 
   async create(skin: CreateSkinDto): Promise<Skin | HttpException> {
     try {
-      return await this.skinRepository.save(skin);
+      let name = this.utils.capitalize(skin.name);
+
+      return await this.skinRepository.save({ ...skin, name });
     } catch (error) {
       if (error.code === '23503') {
         throw new HttpException(
@@ -49,6 +51,20 @@ export class SkinsService {
     });
   }
 
+  async getBySurvivor(name: string): Promise<Skin[]> {
+    name = this.utils.capitalize(name);
+    console.log(name)
+
+    let skins = await this.skinRepository.findBy({
+      survivor: {
+        name
+      }
+    });
+    console.log(skins);
+
+    return skins;
+  }
+
   async getByName(name: string): Promise<Skin> {
     try {
       name = this.utils.capitalize(name);
@@ -57,7 +73,7 @@ export class SkinsService {
       throw new HttpException(
         {
           status: HttpStatus.NOT_FOUND,
-          error: 'skin does not exist',
+          error: error,
         },
         HttpStatus.NOT_FOUND,
       );

@@ -13,6 +13,10 @@ export class CreateSkinDto {
 
   @ApiProperty()
   @IsString()
+  vignette?: string;
+
+  @ApiProperty()
+  @IsString()
   bigportrait: string;
 
   @ApiProperty({ enum: Collection, enumName: 'Skin collection' })
