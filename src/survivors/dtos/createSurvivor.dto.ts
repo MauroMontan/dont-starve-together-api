@@ -6,7 +6,6 @@ import {
 import { CreateItemDto } from 'src/items/dtos/dtos';
 import { CreateSkinDto } from 'src/skins/dtos/dtos';
 import { CreateSurvivorStatsDto, CreateBackstoryDto } from './dtos';
-import { Backstory } from '../entities/backstory.entity';
 
 export class CreateSurvivorDto {
   @ApiProperty()
@@ -55,7 +54,7 @@ export class CreateSurvivorDto {
   @IsArray()
   entersTheConstantWith: CreateItemDto[];
 
-  @ApiProperty({ type: () => Backstory })
+  @ApiProperty({ type: () => CreateBackstoryDto })
   backstory: CreateBackstoryDto;
 
   @ApiProperty({ isArray: true, type: CreateSkinDto })
