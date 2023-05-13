@@ -35,12 +35,12 @@ import { Config } from './config/config.provider';
 				Backstory,
 				Skin,
 			],
-			synchronize: true, //TODO: change false on prod
+			synchronize: false, //TODO: change false on prod
 		}),
 		CrockpotRecipesModule,
-		SurvivorsModule,
-		ItemsModule,
-		SkinsModule,
+		// SurvivorsModule, // not available data ... :p
+		// ItemsModule,
+		// SkinsModule,
 		UtilsModule,
 	],
 	controllers: [AppController],

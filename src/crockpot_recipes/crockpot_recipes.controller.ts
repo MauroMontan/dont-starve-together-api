@@ -21,7 +21,9 @@ export class CrockpotRecipesController {
   * @param CrockpotRecipe
   * @returns CrockpotRecipe
   **/
-  @Post()
+
+  // @Post()
+  // disabled for prod till auth
   async createCrockpotRecipe(
     @Body() recipe: CreateCrockpotRecipeDto,
   ): Promise<CrockpotRecipe> {
