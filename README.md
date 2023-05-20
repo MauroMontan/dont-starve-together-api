@@ -39,7 +39,7 @@ I started this project to contribute to the dont starve together community (spec
 
 - If you are looking for endpoints and schemas, swagger ui is implemented and working !
 
-### ERD for database
+### ERD for database (deprecated)
 
 ![ERD](/docs/assets/erd_dst_database.png) 
 
