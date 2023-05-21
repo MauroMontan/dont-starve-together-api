@@ -38,7 +38,7 @@ import { CrockpotRecipesResolver } from './crockpot_recipes/crockpot_recipes.res
 				Backstory,
 				Skin,
 			],
-			synchronize: true, //TODO: change false on prod
+			synchronize: false, //TODO: change false on prod
 		}),
 		GraphQLModule.forRoot<ApolloDriverConfig>({
 			driver: ApolloDriver,
