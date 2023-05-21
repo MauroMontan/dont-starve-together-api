@@ -44,8 +44,9 @@ import { CrockpotRecipesResolver } from './crockpot_recipes/crockpot_recipes.res
 		}),
 		GraphQLModule.forRoot<ApolloDriverConfig>({
 			driver: ApolloDriver,
-			persistedQueries: false,
 			playground: false,
+			nodeEnv: "development",
+			csrfPrevention: false,
 			autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
 			plugins: [ApolloServerPluginLandingPageLocalDefault()],
 		}),
