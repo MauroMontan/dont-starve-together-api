@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { SurvivorsModule } from './survivors/survivors.module';
+import { join } from "path";
 import { CrockpotRecipesModule } from './crockpot_recipes/crockpot_recipes.module';
 import {
 	CrockpotRecipe,
@@ -19,6 +19,9 @@ import { SkinsModule } from './skins/skins.module';
 import { UtilsModule } from './utils/utils.module';
 import { Skin } from './skins/entities/entities';
 import { Config } from './config/config.provider';
+import { GraphQLModule } from '@nestjs/graphql';
+import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
+import { CrockpotRecipesResolver } from './crockpot_recipes/crockpot_recipes.resolver';
 
 //WARNING: replace with the right database info
 @Module({
@@ -35,7 +38,12 @@ import { Config } from './config/config.provider';
 				Backstory,
 				Skin,
 			],
-			synchronize: false, //TODO: change false on prod
+			synchronize: true, //TODO: change false on prod
+		}),
+		GraphQLModule.forRoot<ApolloDriverConfig>({
+			driver: ApolloDriver,
+			persistedQueries: false,
+			autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
 		}),
 		CrockpotRecipesModule,
 		// SurvivorsModule, // not available data ... :p
@@ -44,6 +52,6 @@ import { Config } from './config/config.provider';
 		UtilsModule,
 	],
 	controllers: [AppController],
-	providers: [AppService],
+	providers: [AppService, CrockpotRecipesResolver],
 })
 export class AppModule { }

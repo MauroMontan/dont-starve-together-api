@@ -1,0 +1,27 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type CrockpotRecipe {
+  id: Int!
+  name: String!
+  type: String!
+  spoils: String!
+  cookingTime: String!
+  asset: String
+  sideEffect: String
+  stats: RecipeStats!
+  isWarlySpecial: Boolean!
+}
+
+type RecipeStats {
+  id: Int!
+  sanity: Float!
+  hunger: Float!
+  health: Float!
+}
+
+type Query {
+  crockpotRecipes: [CrockpotRecipe!]!
+  crockpotRecipeByName(name: String!): CrockpotRecipe!
+}
