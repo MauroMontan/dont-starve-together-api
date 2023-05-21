@@ -20,6 +20,8 @@ import { UtilsModule } from './utils/utils.module';
 import { Skin } from './skins/entities/entities';
 import { Config } from './config/config.provider';
 import { GraphQLModule } from '@nestjs/graphql';
+import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default';
+
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { CrockpotRecipesResolver } from './crockpot_recipes/crockpot_recipes.resolver';
 
@@ -43,8 +45,9 @@ import { CrockpotRecipesResolver } from './crockpot_recipes/crockpot_recipes.res
 		GraphQLModule.forRoot<ApolloDriverConfig>({
 			driver: ApolloDriver,
 			persistedQueries: false,
-			playground: true,
+			playground: false,
 			autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+			plugins: [ApolloServerPluginLandingPageLocalDefault()],
 		}),
 		CrockpotRecipesModule,
 		// SurvivorsModule, // not available data ... :p
