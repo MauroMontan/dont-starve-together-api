@@ -48,8 +48,13 @@ export class CrockpotRecipesService {
 
   async getWarlyRecipes(): Promise<CrockpotRecipe[] | HttpException> {
     try {
-      return await this.CrockpotRecipeRepository.findBy({
-        isWarlySpecial: true,
+      return await this.CrockpotRecipeRepository.find({
+        where: {
+          isWarlySpecial: true,
+        },
+        relations: {
+          stats: true,
+        },
       });
     } catch (error) {
       throw new HttpException(
