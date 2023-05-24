@@ -39,9 +39,10 @@ I started this project to contribute to the dont starve together community (spec
 
 - If you are looking for endpoints and schemas, swagger ui is implemented and working !
 
-### ERD for database (deprecated)
+### ERD for database
 
-![ERD](/docs/assets/erd_dst_database.png) 
+[Here](https://dbdocs.io/mauroanastacio/dont-starve-together-db?schema=public&view=relationships&table=crockpot_recipe) is the ERD and some information of the tables :D
+
 
 
 
