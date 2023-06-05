@@ -11,7 +11,7 @@ export class SkinsService {
   constructor(
     @InjectRepository(Skin) private skinRepository: Repository<Skin>,
     private utils: UtilsService,
-  ) { }
+  ) {}
 
   async create(skin: CreateSkinDto): Promise<Skin | HttpException> {
     try {
@@ -53,12 +53,12 @@ export class SkinsService {
 
   async getBySurvivor(name: string): Promise<Skin[]> {
     name = this.utils.capitalize(name);
-    console.log(name)
+    console.log(name);
 
     let skins = await this.skinRepository.findBy({
       survivor: {
-        name
-      }
+        name,
+      },
     });
     console.log(skins);
 

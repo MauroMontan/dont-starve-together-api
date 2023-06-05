@@ -14,11 +14,10 @@ import { SurvivorsService } from './survivors.service';
 @ApiTags('Survivors')
 @Controller('survivors')
 export class SurvivorsController {
-  constructor(private service: SurvivorsService) { }
+  constructor(private service: SurvivorsService) {}
 
   @Post()
-  async createSurvivor(
-    @Body() survivor: CreateSurvivorDto): Promise<Survivor> {
+  async createSurvivor(@Body() survivor: CreateSurvivorDto): Promise<Survivor> {
     return await this.service.create(survivor);
   }
 
@@ -28,7 +27,9 @@ export class SurvivorsController {
   }
 
   @Get(':name')
-  async getSurvivorByName(@Param('name') name: string): Promise<Survivor | HttpException> {
+  async getSurvivorByName(
+    @Param('name') name: string,
+  ): Promise<Survivor | HttpException> {
     return await this.service.getByName(name);
   }
 }

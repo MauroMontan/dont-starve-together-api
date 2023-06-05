@@ -14,7 +14,7 @@ export class SurvivorsService {
     private survivorRepository: Repository<Survivor>,
     private crockpotRecipeService: CrockpotRecipesService,
     private utils: UtilsService,
-  ) { }
+  ) {}
 
   private relations = {
     entersTheConstantWith: true,
@@ -27,10 +27,9 @@ export class SurvivorsService {
   };
 
   async create(survivor: CreateSurvivorDto): Promise<Survivor> {
-
     let name = this.utils.capitalize(survivor.name);
 
-    let recipeName = "";
+    let recipeName = '';
 
     console.log(survivor.favouriteFood);
     if (survivor.favouriteFood === undefined) {
@@ -43,18 +42,23 @@ export class SurvivorsService {
       );
     }
     if (survivor.favouriteFood != undefined) {
-
       recipeName = this.utils.capitalize(survivor.favouriteFood.name);
     }
 
     let existingSurvivor: Survivor = await this.getByName(survivor.name);
-    let existingRecipe: CrockpotRecipe = await this.crockpotRecipeService.getByName(recipeName);
+    let existingRecipe: CrockpotRecipe =
+      await this.crockpotRecipeService.getByName(recipeName);
     console.log(existingSurvivor);
     if (!existingSurvivor) {
       if (!existingRecipe) {
         return await this.survivorRepository.save({ ...survivor, name });
       } else {
-        return await this.survivorRepository.save({ ...survivor, name, favourite_food_id: existingRecipe.id, favouriteFood: null });
+        return await this.survivorRepository.save({
+          ...survivor,
+          name,
+          favourite_food_id: existingRecipe.id,
+          favouriteFood: null,
+        });
       }
     } else {
       throw new HttpException(

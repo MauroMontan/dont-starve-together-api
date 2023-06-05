@@ -1,8 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsArray, IsString } from 'class-validator';
-import {
-  CreateCrockpotRecipeDto,
-} from 'src/crockpot_recipes/dtos/dtos';
+import { CreateCrockpotRecipeDto } from 'src/crockpot_recipes/dtos/dtos';
 import { CreateItemDto } from 'src/items/dtos/dtos';
 import { CreateSkinDto } from 'src/skins/dtos/dtos';
 import { CreateSurvivorStatsDto, CreateBackstoryDto } from './dtos';

@@ -5,6 +5,7 @@ import {
   HttpException,
   Param,
   Post,
+  Query,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { CrockpotRecipesService } from './crockpot_recipes.service';
@@ -14,13 +15,13 @@ import { CrockpotRecipe } from './entities/entities';
 @ApiTags('Crockpot Recipes')
 @Controller('crockpot-recipes')
 export class CrockpotRecipesController {
-  constructor(private service: CrockpotRecipesService) { }
+  constructor(private service: CrockpotRecipesService) {}
 
   /**
-  * This controller creates a new recipe
-  * @param CrockpotRecipe
-  * @returns CrockpotRecipe
-  **/
+   * This controller creates a new recipe
+   * @param CrockpotRecipe
+   * @returns CrockpotRecipe
+   **/
 
   // @Post()
   // disabled for prod till auth
@@ -31,19 +32,18 @@ export class CrockpotRecipesController {
   }
 
   /**
-  * This controller returns all the recipes 
-  * @returns CrockpotRecipe[]
-  **/
+   * This controller returns all the recipes
+   * @returns CrockpotRecipe[]
+   **/
   @Get()
-  async getRecipes(): Promise<CrockpotRecipe[]> {
-    return await this.service.getAll();
+  async getRecipes(@Query('limit') limit: number): Promise<CrockpotRecipe[]> {
+    return await this.service.getAll(limit);
   }
-
 
   /**
    * This controller returns all Warlys recipes
    * @returns CrockpotRecipe[]
-  **/
+   **/
   @Get('warlys-recipes')
   async getWarlyRecipes(): Promise<CrockpotRecipe[] | HttpException> {
     return await this.service.getWarlyRecipes();

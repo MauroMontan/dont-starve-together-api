@@ -10,7 +10,7 @@ export class ItemsService {
   constructor(
     private utils: UtilsService,
     @InjectRepository(Item) private itemRepository: Repository<Item>,
-  ) { }
+  ) {}
 
   async create(item: CreateItemDto): Promise<Item> {
     return this.itemRepository.save(item);

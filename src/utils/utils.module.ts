@@ -6,4 +6,4 @@ import { UtilsService } from './utils.service';
   providers: [UtilsService],
   exports: [UtilsService],
 })
-export class UtilsModule { }
+export class UtilsModule {}

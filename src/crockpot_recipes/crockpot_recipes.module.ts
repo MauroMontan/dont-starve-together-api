@@ -9,6 +9,6 @@ import { CrockpotRecipesResolver } from './crockpot_recipes.resolver';
   imports: [TypeOrmModule.forFeature([CrockpotRecipe])],
   providers: [CrockpotRecipesService, CrockpotRecipesResolver],
   controllers: [CrockpotRecipesController],
-  exports: [CrockpotRecipesService]
+  exports: [CrockpotRecipesService],
 })
-export class CrockpotRecipesModule { }
+export class CrockpotRecipesModule {}

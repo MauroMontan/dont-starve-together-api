@@ -11,4 +11,4 @@ import { CrockpotRecipesModule } from 'src/crockpot_recipes/crockpot_recipes.mod
   providers: [SurvivorsService],
   controllers: [SurvivorsController],
 })
-export class SurvivorsModule { }
+export class SurvivorsModule {}

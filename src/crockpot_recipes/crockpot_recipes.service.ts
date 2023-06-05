@@ -1,5 +1,5 @@
 import { InjectRepository } from '@nestjs/typeorm';
-import { EntityNotFoundError, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { CrockpotRecipe } from './entities/entities';
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { CreateCrockpotRecipeDto } from './dtos/dtos';
@@ -11,9 +11,7 @@ export class CrockpotRecipesService {
     @InjectRepository(CrockpotRecipe)
     private CrockpotRecipeRepository: Repository<CrockpotRecipe>,
     private utils: UtilsService,
-  ) { }
-
-
+  ) {}
 
   async create(recipe: CreateCrockpotRecipeDto): Promise<CrockpotRecipe> {
     let existingRecipe: CrockpotRecipe;
@@ -24,12 +22,24 @@ export class CrockpotRecipesService {
     if (existingRecipe === null) {
       return this.CrockpotRecipeRepository.save({ ...recipe, name });
     } else {
-      throw new HttpException("recipe already exists", HttpStatus.UNPROCESSABLE_ENTITY)
+      throw new HttpException(
+        'recipe already exists',
+        HttpStatus.UNPROCESSABLE_ENTITY,
+      );
     }
   }
 
-  async getAll(): Promise<CrockpotRecipe[]> {
+  async getAll(limit: number): Promise<CrockpotRecipe[]> {
+    if (limit === undefined) {
+      limit = 100;
+    }
     return await this.CrockpotRecipeRepository.find({
+      take: limit,
+      order: {
+        id: {
+          direction: 'ASC',
+        },
+      },
       relations: {
         stats: true,
       },
@@ -43,7 +53,6 @@ export class CrockpotRecipesService {
     });
 
     return await recipes;
-
   }
 
   async getWarlyRecipes(): Promise<CrockpotRecipe[] | HttpException> {

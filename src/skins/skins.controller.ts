@@ -15,7 +15,7 @@ import { SkinsService } from './skins.service';
 @ApiTags('Skins')
 @Controller('skins')
 export class SkinsController {
-  constructor(private service: SkinsService) { }
+  constructor(private service: SkinsService) {}
 
   @Post()
   async createSkin(@Body() skin: CreateSkinDto): Promise<Skin | HttpException> {
@@ -32,11 +32,10 @@ export class SkinsController {
     return await this.service.getByName(name);
   }
 
-  @Get("/by-survivor/:name")
-  async getAllSurvivorSkins(@Param("name") name: string): Promise<Skin[]> {
+  @Get('/by-survivor/:name')
+  async getAllSurvivorSkins(@Param('name') name: string): Promise<Skin[]> {
     return await this.service.getBySurvivor(name);
   }
-
 
   @Get('/collections/:collection')
   async getSkinByCollection(

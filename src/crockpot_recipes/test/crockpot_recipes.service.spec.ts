@@ -9,8 +9,8 @@ import { CookingTime, FoodType, Spoils } from '../enums/enums';
 const mockRecipe = {
   name: 'Banana Pop',
   asset: 'asset image',
-  spoils: "Quickly" as Spoils,
-  cookingTime: "Long" as CookingTime,
+  spoils: 'Quickly' as Spoils,
+  cookingTime: 'Long' as CookingTime,
   id: 1,
   sideEffect: null,
   isWarlySpecial: false,
@@ -74,8 +74,8 @@ describe('CrockpotRecipesService', () => {
       {
         name: 'Banana Pop',
         asset: 'asset image',
-        cookingTime: "Long" as CookingTime,
-        spoils: "Quickly" as Spoils,
+        cookingTime: 'Long' as CookingTime,
+        spoils: 'Quickly' as Spoils,
         id: 1,
         sideEffect: null,
         isWarlySpecial: false,
