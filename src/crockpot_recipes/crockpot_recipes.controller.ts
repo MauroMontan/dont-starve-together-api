@@ -15,7 +15,7 @@ import { CrockpotRecipe } from './entities/entities';
 @ApiTags('Crockpot Recipes')
 @Controller('crockpot-recipes')
 export class CrockpotRecipesController {
-  constructor(private service: CrockpotRecipesService) {}
+  constructor(private service: CrockpotRecipesService) { }
 
   /**
    * This controller creates a new recipe

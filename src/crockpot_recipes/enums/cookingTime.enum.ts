@@ -1,7 +1,7 @@
 export enum CookingTime {
   SHORT = 'Short',
   AVERAGE = 'Average',
-  ONG = 'Long',
+  LONG = 'Long',
   VERYLONG = 'Very Long',
   VERYSLOW = 'Very Slow',
 }

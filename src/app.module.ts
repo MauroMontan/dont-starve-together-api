@@ -41,7 +41,7 @@ import { Vignette } from './vignettes/entities/vignette';
         Skin,
         Vignette,
       ],
-      synchronize: false, //TODO: change false on prod
+      synchronize: true, //TODO: change false on prod
     }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
@@ -61,4 +61,4 @@ import { Vignette } from './vignettes/entities/vignette';
   controllers: [AppController],
   providers: [AppService, CrockpotRecipesResolver],
 })
-export class AppModule {}
+export class AppModule { }

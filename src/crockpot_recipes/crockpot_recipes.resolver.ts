@@ -4,7 +4,7 @@ import { CrockpotRecipesService } from './crockpot_recipes.service';
 
 @Resolver(() => CrockpotRecipe)
 export class CrockpotRecipesResolver {
-  constructor(private service: CrockpotRecipesService) {}
+  constructor(private service: CrockpotRecipesService) { }
 
   @Query(() => [CrockpotRecipe], { name: 'crockpotRecipes' })
   async recipes(limit: number): Promise<CrockpotRecipe[]> {

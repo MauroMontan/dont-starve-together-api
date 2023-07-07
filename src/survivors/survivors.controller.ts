@@ -14,7 +14,7 @@ import { SurvivorsService } from './survivors.service';
 @ApiTags('Survivors')
 @Controller('survivors')
 export class SurvivorsController {
-  constructor(private service: SurvivorsService) {}
+  constructor(private service: SurvivorsService) { }
 
   @Post()
   async createSurvivor(@Body() survivor: CreateSurvivorDto): Promise<Survivor> {
