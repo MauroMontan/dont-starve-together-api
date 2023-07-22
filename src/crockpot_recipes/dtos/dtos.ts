@@ -1,2 +1,2 @@
-export { CreateCrockpotRecipeDto } from './createCrockpotRecipe.dto';
-export { CreateRecipeStatsDto } from './createStats.dto';
+export { CrockpotRecipe } from './createCrockpotRecipe.dto';
+export { Stats } from './createStats.dto';

@@ -1,14 +1,14 @@
 import { Module } from '@nestjs/common';
 import { CrockpotRecipesService } from './crockpot_recipes.service';
-import { CrockpotRecipesController } from './crockpot_recipes.controller';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { CrockpotRecipe } from './entities/entities';
 import { CrockpotRecipesResolver } from './crockpot_recipes.resolver';
+import { DatabaseModule } from 'src/database/database.module';
+
+
 
 @Module({
-  imports: [TypeOrmModule.forFeature([CrockpotRecipe])],
+  imports: [DatabaseModule],
   providers: [CrockpotRecipesService, CrockpotRecipesResolver],
-  controllers: [CrockpotRecipesController],
+  controllers: [],
   exports: [CrockpotRecipesService],
 })
-export class CrockpotRecipesModule {}
+export class CrockpotRecipesModule { }

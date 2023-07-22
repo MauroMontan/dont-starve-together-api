@@ -1,16 +1,19 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { Field, Float, ObjectType } from '@nestjs/graphql';
 import { IsDecimal } from 'class-validator';
 
-export class CreateRecipeStatsDto {
-  @ApiProperty()
+
+@ObjectType()
+export class Stats {
+
   @IsDecimal()
+  @Field(type => Float)
   sanity: number;
 
-  @ApiProperty()
   @IsDecimal()
+  @Field(type => Float)
   hunger: number;
 
-  @ApiProperty()
   @IsDecimal()
+  @Field(type => Float)
   health: number;
 }

@@ -1,36 +1,54 @@
-import { ApiProperty } from '@nestjs/swagger';
 import { IsBoolean, IsEnum, IsString } from 'class-validator';
 import { CookingTime, FoodType, Spoils } from '../enums/enums';
-import { CreateRecipeStatsDto } from './createStats.dto';
+import { Stats } from './createStats.dto';
+import { Field, ObjectType, registerEnumType } from '@nestjs/graphql';
 
-export class CreateCrockpotRecipeDto {
-  @ApiProperty()
+
+registerEnumType(FoodType, {
+  name: 'foodType',
+  description: 'food type enum',
+});
+
+
+@ObjectType()
+export class CrockpotRecipe {
   @IsString()
+  @Field(type => String)
   name: string;
-  @ApiProperty({ enum: FoodType, enumName: 'Food type' })
+
   @IsEnum(FoodType)
+  @Field(type => String)
   type: FoodType;
 
-  @ApiProperty({ enum: Spoils, enumName: 'Spoils' })
   @IsEnum(Spoils)
+  @Field(type => String)
   spoils: Spoils;
 
-  @ApiProperty({ enum: CookingTime, enumName: 'Cooking time' })
   @IsEnum(CookingTime)
+  @Field(type => String)
   cookingTime: CookingTime;
 
-  @ApiProperty()
   @IsString()
+  @Field(type => String)
   asset?: string;
 
-  @ApiProperty()
   @IsString()
+  @Field(type => String)
   sideEffect?: string;
 
-  @ApiProperty({ type: () => CreateRecipeStatsDto })
-  stats: CreateRecipeStatsDto;
+  @Field(type => Stats)
+  stats: Stats;
 
-  @ApiProperty({ default: false })
   @IsBoolean()
+  @Field(type => Boolean)
   isWarlySpecial: boolean;
+  /*  
+
+    
+  
+   
+  
+    
+  
+   */
 }
