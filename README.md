@@ -1,17 +1,11 @@
-# Don't starve together REST API
+# Don't starve together GraphQL server
 
 
-![test status](https://github.com/MauroMontan/dont-starve-together-REST-API/actions/workflows/tests.yml/badge.svg) 
+This project has been migrated to [deta](https://deta.space) and its database service. TypeOrm and all Sql things are no longer supported in the main project. yes there is a REST service too!, but is a Go side project not uploaded to github yet.
 
-The Don't starve together API is a REST service for providing game information.
+### Some information you can find here. (for now)
 
-
-### Some information you can find here.
-
-- Survivors details
 - Crockpot recipes
-- Items details
-- Bosses Information
 
 
 ### About this project 
@@ -25,24 +19,10 @@ I started this project to contribute to the dont starve together community (spec
 
 - Don't starve together is developed by [Klei Entertainment](https://www.klei.com/). All the images and information of the game belongs to the developers.
 
-
-- The project stills under development (i's not on internet for now).
-
 ### Don't know the game!?
 
 [Here](https://www.klei.com/games/dont-starve-together) you can see more about the game and where to buy it. 
 
+### DOCS
 
-### Documentation ?
-
-- Yep this repo has a [wiki](https://github.com/MauroMontan/dont-starve-together-REST-API/wiki) where you can find detailed information about this project and its development. 
-
-- If you are looking for endpoints and schemas, swagger ui is implemented and working !
-
-### ERD for database
-
-[Here](https://dbdocs.io/mauroanastacio/dont-starve-together-db?schema=public&view=relationships&table=crockpot_recipe) is the ERD and some information of the tables :D
-
-
-
-
+API docs are in [here](https://dont-starve-together-api.xyz)  
